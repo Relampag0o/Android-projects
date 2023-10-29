@@ -2,14 +2,9 @@ package com.example.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
+import android.util.Log;
 
 import java.util.LinkedList;
 
@@ -20,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     Register registerFragment;
     Login loginFragment;
 
+    Welcome welcFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,24 +26,48 @@ public class MainActivity extends AppCompatActivity {
         // create instances for the fragments:
         loginFragment = new Login();
         registerFragment = new Register();
+        welcFragment = new Welcome();
 
-
+        // required for the linkedlist
         users = new LinkedList<User>();
-        users.add(new User("jose", "jmrodriguezl21@iesalbarregas.es", "admin"));
+        users.add(new User("Jose", "jmrodriguezl21@iesalbarregas.es", "admin"));
+        users.add(new User("Marina", "mpreciados@iesalbarregas.es", "teacher"));
 
 
     }
 
-    // this method comunicates both fragments with the main activity.
-    // based on the boolean, it changes the fragmentContainer to either the login or the register.
-    // the ? evaluates if the boolean is false or true.
+    // this method comunicates the fragments with the main activity.
     // based on that, the fragment will be changed.
-    public void switchToFragment(boolean isRegister) {
-        Fragment targetFragment = isRegister ? registerFragment : loginFragment;
+    // we also send the username to be sent as arg to the welcome fragment,
+    // so the welcome_fragment can greet the user that has logged in.
+
+    public void switchToFragment(String fragment,String username) {
+
+
+        Fragment requiredFragment = null;
+
+        switch (fragment) {
+
+            case "login":
+                requiredFragment = loginFragment;
+                break;
+            case "register":
+                requiredFragment = registerFragment;
+                break;
+            case "welcome":
+                requiredFragment = welcFragment;
+                Bundle args = new Bundle();
+                args.putString("username", username);
+                requiredFragment.setArguments(args);
+                break;
+
+
+        }
+
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fragmentContainer, targetFragment)
+                .replace(R.id.fragmentContainer, requiredFragment)
                 .addToBackStack(null)
                 .commit();
     }
@@ -55,14 +76,19 @@ public class MainActivity extends AppCompatActivity {
     // this method adds an user to the users list from the register fragment.
     // it changes the fragment with the previous method switchToFragment() and then adds the user.
     public void addUser(String name, String email, String pw) {
-        switchToFragment(false);
+        switchToFragment("register","");
         users.add(new User(name, email, pw));
 
     }
 
-    public void validateUser(){
-
+    public void validateUser(String email, String pw) {
+        for (User u : users) {
+            if (u.getEmail().equalsIgnoreCase(email) && u.getPassword().equalsIgnoreCase(pw))
+                switchToFragment("welcome",u.getName());
+        }
     }
 
 
 }
+
+

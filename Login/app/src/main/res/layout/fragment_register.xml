@@ -39,7 +39,7 @@
             android:drawablePadding="20dp"
             android:ems="10"
             android:hint="your password"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:padding="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

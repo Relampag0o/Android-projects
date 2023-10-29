@@ -49,7 +49,7 @@ public class Register extends Fragment {
             @Override
             public void onClick(View v) {
                 if (getActivity() != null && getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).switchToFragment(false);
+                    ((MainActivity) getActivity()).switchToFragment("login","");
                 }
             }
         });
@@ -58,7 +58,7 @@ public class Register extends Fragment {
             @Override
             public void onClick(View v) {
                 if (getActivity() != null && getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).addUser(name.toString(),email.toString(),pw.toString());
+                    ((MainActivity) getActivity()).addUser(name.getText().toString(),email.getText().toString(),pw.getText().toString());
                     name.setText("");
                     email.setText("");
                     pw.setText("");
