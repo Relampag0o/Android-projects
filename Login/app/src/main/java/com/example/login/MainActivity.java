@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Register registerFragment;
     Login loginFragment;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         loginFragment = new Login();
         registerFragment = new Register();
 
+
         users = new LinkedList<User>();
         users.add(new User("jose", "jmrodriguezl21@iesalbarregas.es", "admin"));
 
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
     // this method comunicates both fragments with the main activity.
     // based on the boolean, it changes the fragmentContainer to either the login or the register.
+    // the ? evaluates if the boolean is false or true.
+    // based on that, the fragment will be changed.
     public void switchToFragment(boolean isRegister) {
         Fragment targetFragment = isRegister ? registerFragment : loginFragment;
 
@@ -45,6 +49,19 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.fragmentContainer, targetFragment)
                 .addToBackStack(null)
                 .commit();
+    }
+
+
+    // this method adds an user to the users list from the register fragment.
+    // it changes the fragment with the previous method switchToFragment() and then adds the user.
+    public void addUser(String name, String email, String pw) {
+        switchToFragment(false);
+        users.add(new User(name, email, pw));
+
+    }
+
+    public void validateUser(){
+
     }
 
 

@@ -14,8 +14,9 @@ import android.widget.TextView;
 public class Login extends Fragment {
 
     public Login() {
-        // Constructor vacío requerido
+        // required empty constructor!
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class Login extends Fragment {
 
         TextView notRegisteredTextView = view.findViewById(R.id.notRegistered);
 
+        // method to comunicate with mainActivity and switch the fragment.
         notRegisteredTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,7 +32,10 @@ public class Login extends Fragment {
                     ((MainActivity) getActivity()).switchToFragment(true);
                 }
             }
-        });
+        }
+
+
+        );
         return view;
     }
 }
