@@ -26,12 +26,11 @@ public class Login extends Fragment {
         notRegisteredTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).onNotRegisteredClicked();
+                if ( getActivity() != null && getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).switchToFragment(true);
                 }
             }
         });
-
         return view;
     }
 }

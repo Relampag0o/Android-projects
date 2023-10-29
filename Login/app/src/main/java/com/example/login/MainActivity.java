@@ -28,18 +28,21 @@ public class MainActivity extends AppCompatActivity {
         // create instances for the fragments:
         loginFragment = new Login();
         registerFragment = new Register();
+
         users = new LinkedList<User>();
         users.add(new User("jose", "jmrodriguezl21@iesalbarregas.es", "admin"));
 
 
     }
 
-    // this method comunicates the not Registered text in the login_fragment with the main activity.
-    public void onNotRegisteredClicked() {
-        // Cambiar al fragmento de registro cuando se haga clic en el enlace
+    // this method comunicates both fragments with the main activity.
+    // based on the boolean, it changes the fragmentContainer to either the login or the register.
+    public void switchToFragment(boolean isRegister) {
+        Fragment targetFragment = isRegister ? registerFragment : loginFragment;
+
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fragmentContainer, registerFragment)
+                .replace(R.id.fragmentContainer, targetFragment)
                 .addToBackStack(null)
                 .commit();
     }
