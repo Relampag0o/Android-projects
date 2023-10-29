@@ -11,8 +11,12 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.LinkedList;
+
 public class MainActivity extends AppCompatActivity {
-    // declaring both fragments:
+    // declaring both fragments and a list with few users:
+    public LinkedList<User> users;
+
     Register registerFragment;
     Login loginFragment;
 
@@ -24,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         // create instances for the fragments:
         loginFragment = new Login();
         registerFragment = new Register();
+        users = new LinkedList<User>();
+        users.add(new User("jose", "jmrodriguezl21@iesalbarregas.es", "admin"));
 
 
     }
