@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class Register extends Fragment {
@@ -23,11 +25,6 @@ public class Register extends Fragment {
         // Required empty public constructor
     }
 
-    /*
-
-
-
-     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,25 +42,38 @@ public class Register extends Fragment {
 
         // add required listeners:
         // i need to check if the instance of the method is the main one, couldve used getClass() aswell.
+
         gBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (getActivity() != null && getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).switchToFragment("login","");
+                    ((MainActivity) getActivity()).switchToFragment("login", "");
                 }
             }
         });
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getActivity() != null && getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).addUser(name.getText().toString(),email.getText().toString(),pw.getText().toString());
+                String nameStr = name.getText().toString();
+                String emailStr = email.getText().toString();
+                String pwStr = pw.getText().toString();
+
+                if (!nameStr.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailStr).matches() && !pwStr.isEmpty()) {
+                    if (getActivity() != null && getActivity() instanceof MainActivity) {
+                        ((MainActivity) getActivity()).addUser(nameStr, emailStr, pwStr);
+                    }
                     name.setText("");
                     email.setText("");
                     pw.setText("");
+                } else {
+                    if (!Patterns.EMAIL_ADDRESS.matcher(emailStr).matches()) {
+                        email.setError("Not valid email.");
+                    } else {
+                        if (getActivity() != null) {
+                            Toast.makeText(getActivity(), "Please, insert valid characters.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 }
-
             }
         });
         return view;

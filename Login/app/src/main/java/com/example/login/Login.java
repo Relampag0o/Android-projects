@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,7 @@ public class Login extends Fragment {
             @Override
             public void onClick(View v) {
                 if (getActivity() != null && getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).switchToFragment("register","");
+                    ((MainActivity) getActivity()).switchToFragment("register", "");
                 }
             }
         });
@@ -47,11 +48,18 @@ public class Login extends Fragment {
             @Override
             public void onClick(View v) {
                 if (getActivity() != null && getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).validateUser(userText.getText().toString(),pwText.getText().toString());
-                }
+                    String email = userText.getText().toString();
+                    String password = pwText.getText().toString();
 
+                    if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                        ((MainActivity) getActivity()).validateUser(email, password);
+                    } else {
+                        userText.setError("The adress is not valid.");
+                    }
+                }
             }
         });
         return view;
     }
+
 }

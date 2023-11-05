@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
+import java.security.AccessController;
 import java.util.LinkedList;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     // we also send the username to be sent as arg to the welcome fragment,
     // so the welcome_fragment can greet the user that has logged in.
 
-    public void switchToFragment(String fragment,String username) {
+    public void switchToFragment(String fragment, String username) {
 
 
         Fragment requiredFragment = null;
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        // we use addToBackStack to allow the user to go back.
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragmentContainer, requiredFragment)
@@ -76,15 +79,24 @@ public class MainActivity extends AppCompatActivity {
     // this method adds an user to the users list from the register fragment.
     // it changes the fragment with the previous method switchToFragment() and then adds the user.
     public void addUser(String name, String email, String pw) {
-        switchToFragment("register","");
+        switchToFragment("register", "");
         users.add(new User(name, email, pw));
 
     }
 
+    // this method validates if the user exists.
     public void validateUser(String email, String pw) {
+        boolean found = false;
         for (User u : users) {
-            if (u.getEmail().equalsIgnoreCase(email) && u.getPassword().equalsIgnoreCase(pw))
-                switchToFragment("welcome",u.getName());
+            if (u.getEmail().equalsIgnoreCase(email) && u.getPassword().equalsIgnoreCase(pw)) {
+                switchToFragment("welcome", u.getName());
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            Toast.makeText(this, "Mail or password is incorrect.", Toast.LENGTH_SHORT).show();
+
         }
     }
 
