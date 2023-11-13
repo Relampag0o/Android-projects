@@ -24,15 +24,16 @@
             android:id="@+id/fragmentContainerView"
             android:name="com.example.instadam.Home"
             android:layout_width="match_parent"
-            android:layout_height="597dp" />
+            android:layout_height="0dp"
+            android:layout_above="@+id/menuBot"
+            android:layout_alignParentTop="true" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/menuBot"
             android:layout_width="match_parent"
-            android:layout_height="63dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="604dp"
-            android:layout_alignParentBottom="true"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/black"/>
     </RelativeLayout>
 
 </LinearLayout>
