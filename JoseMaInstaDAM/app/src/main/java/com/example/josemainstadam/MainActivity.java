@@ -52,10 +52,11 @@ public class MainActivity extends AppCompatActivity {
         // until this point.
 
         // MY CODE:
+        // MAKING SURE THE HOME FRAGMENT IS CHARGED BY DEFAULT:
+        loadFragment(new HomeFragment());
         Toolbar toolbar = binding.appBarMain.toolbar;
         Drawable drawable = getResources().getDrawable(R.drawable.hacker2);
         Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-
         // TODO: create a function with this code.
         // Redimensiona el bitmap a 100x100 px
         Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, 40, 40, false);
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigation = findViewById(R.id.menuBot);
 
+        // MANAGING THE BOTTOM MENU OPTIONS: 
         bottomNavigation.setOnItemSelectedListener(item -> {
             int idItem = item.getItemId();
             Fragment f = null;
