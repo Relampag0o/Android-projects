@@ -9,8 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.josemainstadam.CardAdapter;
+import com.example.josemainstadam.CardItem;
+import com.example.josemainstadam.R;
 import com.example.josemainstadam.databinding.FragmentHomeBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -24,8 +32,15 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //final TextView textView = binding.textHome;
-        //homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        List<CardItem> cardItems = new ArrayList<>();
+        cardItems.add(new CardItem("User1", R.drawable.hacker, R.drawable.hacker));
+        cardItems.add(new CardItem("User2", R.drawable.hacker2, R.drawable.hacker));
+
+        CardAdapter cardAdapter = new CardAdapter(cardItems, requireContext());
+        binding.recyclerView.setAdapter(cardAdapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
+        binding.recyclerView.setLayoutManager(layoutManager);
+
         return root;
     }
 
