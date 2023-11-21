@@ -1,5 +1,8 @@
 package com.example.josemainstadam;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuInflater;
@@ -11,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -48,6 +52,20 @@ public class MainActivity extends AppCompatActivity {
         // until this point.
 
         // MY CODE:
+        Toolbar toolbar = binding.appBarMain.toolbar;
+        Drawable drawable = getResources().getDrawable(R.drawable.hacker2);
+        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+
+        // TODO: create a function with this code.
+        // Redimensiona el bitmap a 100x100 px
+        Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, 40, 40, false);
+
+        // Convierte el bitmap redimensionado en un drawable
+        Drawable userImage = new BitmapDrawable(getResources(), resizedBitmap);
+
+        // Establece el drawable redimensionado como el icono de navegación
+        toolbar.setNavigationIcon(userImage);
+
         BottomNavigationView bottomNavigation = findViewById(R.id.menuBot);
 
         bottomNavigation.setOnItemSelectedListener(item -> {
