@@ -16,4 +16,12 @@
         android:id="@+id/action_notifications"
         android:icon="@drawable/notifications"
         android:title="" />
+
+    <item
+        android:id="@+id/action_messages"
+        android:icon="@drawable/fav"
+        android:title="" />
+
+
+
 </menu>

@@ -28,8 +28,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbarTop);
         BottomNavigationView bottomNavigation = findViewById(R.id.menuBot);
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.bottom_menu, bottomNavigation.getMenu());
 
+
+        inflater.inflate(R.menu.bottom_menu, bottomNavigation.getMenu());
         bottomNavigation.setOnItemSelectedListener(item -> {
             int idItem = item.getItemId();
             Fragment f = null;
@@ -40,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
                 f = new Search();
             if (idItem == R.id.action_notifications)
                 f = new Notification();
+
+            if (idItem == R.id.action_messages)
+                f = new Notification();
+
 
             if (f != null)
                 loadFragment(f);
