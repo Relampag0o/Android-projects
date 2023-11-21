@@ -27,10 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbarTop = findViewById(R.id.menuTop);
         setSupportActionBar(toolbarTop);
         BottomNavigationView bottomNavigation = findViewById(R.id.menuBot);
-        MenuInflater inflater = getMenuInflater();
 
-
-        inflater.inflate(R.menu.bottom_menu, bottomNavigation.getMenu());
         bottomNavigation.setOnItemSelectedListener(item -> {
             int idItem = item.getItemId();
             Fragment f = null;
