@@ -1,6 +1,7 @@
 package com.example.josemainstadam;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,16 +37,27 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CardItem cardItem = cardItems.get(position);
-        // Configuración de la tarjeta
+
+        // CARD CONFIGURATION:
         holder.username.setText(cardItem.getUsername());
         holder.userImage.setImageResource(cardItem.getUserImageResource());
         holder.mainImage.setImageResource(cardItem.getMainImageResource());
 
-        // Configuración del botón de like
+        // LIKE CONFIGURATION:
         holder.likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para manejar el clic en el botón de like
+                if (cardItem.isLiked()) {
+                    Log.d("INFO", "Setting the boolean to false: ");
+                    cardItem.setLiked(false);
+                    notifyItemChanged(holder.getAdapterPosition());
+
+                } else {
+                    Log.d("INFO", "Setting the boolean to true: ");
+                    cardItem.setLiked(true);
+                    Log.d("STATUS", cardItem.isLiked() + "");
+                    notifyItemChanged(holder.getAdapterPosition());
+                }
             }
         });
     }

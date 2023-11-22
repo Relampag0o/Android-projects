@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 f = new Notification();
 
             if (idItem == R.id.action_messages)
-                f = new Notification();
+                f = new Fav();
 
 
             if (f != null)
