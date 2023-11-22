@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -58,7 +59,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         ImageView userImage;
         TextView username;
         ImageView mainImage;
-        Button likeButton;
+        ImageButton likeButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

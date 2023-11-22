@@ -1,10 +1,18 @@
 package com.example.josemainstadam;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.TypefaceSpan;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
@@ -15,6 +23,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -55,21 +64,27 @@ public class MainActivity extends AppCompatActivity {
         // MAKING SURE THE HOME FRAGMENT IS CHARGED BY DEFAULT:
         loadFragment(new HomeFragment());
         Toolbar toolbar = binding.appBarMain.toolbar;
-        Drawable drawable = getResources().getDrawable(R.drawable.hacker2);
-        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        // TODO: create a function with this code.
-        // Redimensiona el bitmap a 100x100 px
-        Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, 40, 40, false);
 
-        // Convierte el bitmap redimensionado en un drawable
+        // CREATION OF THE PROFILE PICTURE IN THE TOP
+        Bitmap bitmap = getBitmapFromVectorDrawable(R.drawable.programming);
+        Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, 170, 170, true);
         Drawable userImage = new BitmapDrawable(getResources(), resizedBitmap);
-
-        // Establece el drawable redimensionado como el icono de navegación
         toolbar.setNavigationIcon(userImage);
+
+
+        //CREATION OF THE FONT INSTADAM:
+        Typeface typeface = ResourcesCompat.getFont(this, R.font.instadamfont);
+        SpannableString spannableString = new SpannableString("     instaDAM by Jose M");
+        spannableString.setSpan(new TypefaceSpan(typeface), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        int fontSizeInPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 28, getResources().getDisplayMetrics());
+        spannableString.setSpan(new AbsoluteSizeSpan(fontSizeInPixels), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        toolbar.setTitle(spannableString);
+
 
         BottomNavigationView bottomNavigation = findViewById(R.id.menuBot);
 
-        // MANAGING THE BOTTOM MENU OPTIONS: 
+        // MANAGING THE BOTTOM MENU OPTIONS:
         bottomNavigation.setOnItemSelectedListener(item -> {
             int idItem = item.getItemId();
             Fragment f = null;
@@ -93,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // METHOD TO CHANGE THE FRAGMENTS:
     private void loadFragment(Fragment fragment) {
         Log.d("FragmentTag", "Loading fragment: " + fragment.getClass().getSimpleName());
 
@@ -117,5 +133,24 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+
+    // METHOD TO CONVERT THE XML INTO A BITMAP SO I CAN MAKE IT ROUNDED!
+
+    public Bitmap getBitmapFromVectorDrawable(int drawableId) {
+        Drawable drawable = getResources().getDrawable(drawableId);
+        if (drawable instanceof BitmapDrawable) {
+            return ((BitmapDrawable) drawable).getBitmap();
+        } else if (drawable instanceof VectorDrawable) {
+            Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(),
+                    drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            drawable.draw(canvas);
+            return bitmap;
+        } else {
+            throw new IllegalArgumentException("unsupported drawable type");
+        }
     }
 }

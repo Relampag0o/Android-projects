@@ -27,32 +27,15 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-
-
-        Log.d("HomeFragment", "onCreateView: Creating card items");
         List<CardItem> cardItems = new ArrayList<>();
         cardItems.add(new CardItem("User1", R.drawable.hacker, R.drawable.hacker));
         cardItems.add(new CardItem("User2", R.drawable.hacker2, R.drawable.hacker));
-
-        Log.d("HomeFragment", "onCreateView: Creating card adapter");
         CardAdapter cardAdapter = new CardAdapter(cardItems, requireContext());
-
-        Log.d("HomeFragment", "onCreateView: Setting adapter");
         binding.recyclerView.setAdapter(cardAdapter);
-
-        Log.d("HomeFragment", "onCreateView: Setting layout manager");
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
         binding.recyclerView.setLayoutManager(layoutManager);
-
-        Log.d("HomeFragment", "onCreateView: Notifying data set changed");
-
-        cardAdapter.notifyDataSetChanged();
-
-
 
         return root;
     }
