@@ -30,6 +30,12 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         List<CardItem> cardItems = new ArrayList<>();
+        cardItems.add(new CardItem("User1", R.drawable.hacker, R.drawable.china));
+        cardItems.add(new CardItem("User2", R.drawable.hacker2, R.drawable.us));
+        cardItems.add(new CardItem("User1", R.drawable.hacker, R.drawable.kr));
+        cardItems.add(new CardItem("User2", R.drawable.hacker2, R.drawable.collie));
+        cardItems.add(new CardItem("User1", R.drawable.hacker, R.drawable.hacker));
+        cardItems.add(new CardItem("User2", R.drawable.hacker2, R.drawable.hacker));
         cardItems.add(new CardItem("User1", R.drawable.hacker, R.drawable.hacker));
         cardItems.add(new CardItem("User2", R.drawable.hacker2, R.drawable.hacker));
         CardAdapter cardAdapter = new CardAdapter(cardItems, requireContext());
