@@ -36,10 +36,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.josemainstadam.databinding.ActivityMainBinding;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+
+    private List<CardItem> cardItemList;
+
+    Fragment f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,12 +90,21 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle(spannableString);
 
 
+        // instances
         BottomNavigationView bottomNavigation = findViewById(R.id.menuBot);
+        /*
+        HomeFragment homeF = new HomeFragment();
+        Search searchF = new Search();
+        Notification notificationF = new Notification();
+        Fav favF = new Fav();
+
+         */
+
 
         // MANAGING THE BOTTOM MENU OPTIONS:
         bottomNavigation.setOnItemSelectedListener(item -> {
             int idItem = item.getItemId();
-            Fragment f = null;
+            f = null;
 
             if (idItem == R.id.action_home)
                 f = new HomeFragment();
@@ -96,8 +113,9 @@ public class MainActivity extends AppCompatActivity {
             if (idItem == R.id.action_notifications)
                 f = new Notification();
 
-            if (idItem == R.id.action_messages)
+            if (idItem == R.id.action_messages){
                 f = new Fav();
+            }
 
 
             if (f != null)
@@ -106,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         });
+
+
+
+        //Log.d("SIZE OF THE LIST IN HOME: ", cardItemList.size() + "");
     }
 
     // METHOD TO CHANGE THE FRAGMENTS:

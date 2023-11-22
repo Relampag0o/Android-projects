@@ -20,8 +20,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/hacker"
-            app:civ_border_color="@color/white"
-            />
+            app:civ_border_color="@color/white" />
 
         <TextView
             android:id="@+id/username"

@@ -1,7 +1,9 @@
 package com.example.josemainstadam;
 
 
-public class CardItem {
+import java.io.Serializable;
+
+public class CardItem implements Serializable {
     private String username;
     private int userImageResource;
     private int mainImageResource;
