@@ -60,8 +60,8 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
 
         public void bindData(Person person) {
             personImage.setImageResource(person.getImageResource());
-            username.setText("@" + person.getUsername());
-            fullName.setText(person.getUsername() + person.getFullName());
+            username.setText(person.getUsername());
+            fullName.setText(person.getUsername() + " " + person.getFullName());
             followerCount.setText(String.valueOf(person.getFollowerCount()) + " followers");
         }
     }
