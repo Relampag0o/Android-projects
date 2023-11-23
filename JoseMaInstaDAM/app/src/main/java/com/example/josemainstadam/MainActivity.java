@@ -92,19 +92,27 @@ public class MainActivity extends AppCompatActivity {
 
         // instances
         BottomNavigationView bottomNavigation = findViewById(R.id.menuBot);
+        /*
+        HomeFragment homeF = new HomeFragment();
+        Search searchF = new Search();
+        Notification notificationF = new Notification();
+        Fav favF = new Fav();
 
+         */
 
 
         // MANAGING THE BOTTOM MENU OPTIONS:
         bottomNavigation.setOnItemSelectedListener(item -> {
             int idItem = item.getItemId();
             f = null;
+
             if (idItem == R.id.action_home)
                 f = new HomeFragment();
             if (idItem == R.id.action_search)
                 f = new Search();
             if (idItem == R.id.action_notifications)
                 f = new Notification();
+
             if (idItem == R.id.action_messages){
                 f = new Fav();
             }
@@ -129,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fragmentContainerView, fragment);
-        transaction.addToBackStack(null);
         transaction.commit();
     }
 
