@@ -61,10 +61,14 @@ public class Search extends Fragment {
         String[] names = {"Juan", "Pepe", "Alfonso", "Roberto", "Marcos ", "Andres ", "Jose Maria "};
         String[] surnames = {"Lopez", "Gonzalez", "Rodriguez", "Fernandez", "Garcia", "Martinez", "Sanchez", "Perez", "Romero", "Diaz", "Torres", "Ruiz", "Serrano", "Santos", "Hernandez", "Jimenez", "Vazquez", "Navarro", "Molina", "Castro"};
 
+        persons.add(new Person(201, "Dualipa", "DUA LIPA", 20000000, R.drawable.dualipa));
+        persons.add(new Person(202, "Tyler", "Tyler1", 10000000, R.drawable.tyler1));
+
         Random r = new Random();
 
-        for (int i = 0; i < 15; i++) {
-            persons.add(new Person(i, names[r.nextInt(names.length - 1)], surnames[r.nextInt(surnames.length - 1)], r.nextInt(250000), R.drawable.person1));
+        for (int i = 1; i < 10; i++) {
+            int picId = getResources().getIdentifier("person" + i, "drawable", getContext().getPackageName());
+            persons.add(new Person(i, names[r.nextInt(names.length - 1)], surnames[r.nextInt(surnames.length - 1)], r.nextInt(250000), picId));
         }
 
     }
