@@ -50,11 +50,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
                 if (cardItem.isLiked()) {
                     Log.d("INFO", "Setting the boolean to false: ");
                     cardItem.setLiked(false);
+                    cardItem.saveState(context);  // Save state when unliked
                     notifyItemChanged(holder.getAdapterPosition());
 
                 } else {
                     Log.d("INFO", "Setting the boolean to true: ");
                     cardItem.setLiked(true);
+                    cardItem.saveState(context);  // Save state when liked
+
                     Log.d("STATUS", cardItem.isLiked() + "");
                     notifyItemChanged(holder.getAdapterPosition());
                 }

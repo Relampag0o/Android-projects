@@ -70,6 +70,7 @@ public class Fav extends Fragment {
 
     public void setFavItems() {
         for (CardItem c : cardItems) {
+            c.loadState(getContext());
             if (c.isLiked()) {
                 favItems.add(c);
             }
