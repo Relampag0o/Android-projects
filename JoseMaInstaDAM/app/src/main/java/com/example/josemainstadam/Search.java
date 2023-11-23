@@ -64,7 +64,7 @@ public class Search extends Fragment {
         Random r = new Random();
 
         for (int i = 0; i < 15; i++) {
-            persons.add(new Person(i, names[r.nextInt(names.length - 1)], surnames[r.nextInt(surnames.length - 1)], r.nextInt(250000), R.drawable.china));
+            persons.add(new Person(i, names[r.nextInt(names.length - 1)], surnames[r.nextInt(surnames.length - 1)], r.nextInt(250000), R.drawable.person1));
         }
 
     }

@@ -34,6 +34,8 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
         holder.username.setText(person.getUsername());
         holder.fullName.setText(person.getFullName());
         holder.followerCount.setText(person.getFollowerCount() + " followers");
+        holder.bindData(persons.get(position));
+
     }
 
     @Override
@@ -53,6 +55,14 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
             username = itemView.findViewById(R.id.username);
             fullName = itemView.findViewById(R.id.fullName);
             followerCount = itemView.findViewById(R.id.followerCount);
+
+        }
+
+        public void bindData(Person person) {
+            personImage.setImageResource(person.getImageResource());
+            username.setText("@" + person.getUsername());
+            fullName.setText(person.getUsername() + person.getFullName());
+            followerCount.setText(String.valueOf(person.getFollowerCount()) + " followers");
         }
     }
 }
