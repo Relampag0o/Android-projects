@@ -77,6 +77,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         ImageView mainImage;
         ImageButton likeButton;
 
+        ImageView profileimg;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -85,6 +86,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             username = itemView.findViewById(R.id.username);
             mainImage = itemView.findViewById(R.id.mainImage);
             likeButton = itemView.findViewById(R.id.likeButton);
+            profileimg = itemView.findViewById(R.id.profileimg);
         }
     }
 }

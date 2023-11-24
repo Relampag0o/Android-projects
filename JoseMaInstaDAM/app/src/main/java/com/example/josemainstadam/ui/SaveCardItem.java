@@ -6,14 +6,25 @@ public class SaveCardItem {
 
     private String author;
     private int image;
+    private int imageuser;
 
     private boolean saved;
 
-    public SaveCardItem(int id, String author, int image) {
+    public SaveCardItem(int id, String author, int image, int imageuser) {
         this.id = id;
         this.author = author;
         this.image = image;
+        this.imageuser = imageuser;
         this.saved = true;
+
+    }
+
+    public int getImageuser() {
+        return imageuser;
+    }
+
+    public void setImageuser(int imageuser) {
+        this.imageuser = imageuser;
     }
 
     public boolean isSaved() {

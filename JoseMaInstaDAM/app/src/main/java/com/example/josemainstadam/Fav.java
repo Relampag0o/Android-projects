@@ -72,7 +72,7 @@ public class Fav extends Fragment {
         for (CardItem c : cardItems) {
             c.loadState(getContext());
             if (c.isLiked()) {
-                favItems.add(new SaveCardItem(c.getId(), c.getUsername(), c.getMainImageResource()));
+                favItems.add(new SaveCardItem(c.getId(), c.getUsername(), c.getMainImageResource(),c.getUserImageResource()));
             }
         }
 

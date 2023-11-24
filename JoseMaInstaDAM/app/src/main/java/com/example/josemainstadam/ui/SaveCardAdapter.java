@@ -42,7 +42,7 @@ public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardAdapter.ViewHo
 
         holder.author.setText(saveCardItem.getAuthor());
         holder.image.setImageResource(saveCardItem.getImage());
-
+        holder.profileimg.setImageResource(saveCardItem.getImageuser());
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,12 +73,15 @@ public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardAdapter.ViewHo
 
         TextView author;
         ImageView image;
+        ImageView profileimg;
         Button deleteButton;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             author = itemView.findViewById(R.id.author);
             image = itemView.findViewById(R.id.image);
+            profileimg = itemView.findViewById(R.id.profileimg);
             deleteButton = itemView.findViewById(R.id.deleteButton);
         }
     }
