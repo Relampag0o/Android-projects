@@ -43,6 +43,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.userImage.setImageResource(cardItem.getUserImageResource());
         holder.mainImage.setImageResource(cardItem.getMainImageResource());
 
+
         // LIKE CONFIGURATION:
         holder.likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +76,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         TextView username;
         ImageView mainImage;
         ImageButton likeButton;
+
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

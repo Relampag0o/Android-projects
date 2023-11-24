@@ -41,7 +41,6 @@ public class Fav extends Fragment {
         if (savedInstanceState == null) {
             return inflater.inflate(R.layout.fragment_fav, container, false);
         } else {
-            // La vista ya ha sido creada, no la necesitas recrear
             return getView();
         }
     }
@@ -51,8 +50,7 @@ public class Fav extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
             cardItems = HomeFragment.cardItems;
-            System.out.println("Hello " + cardItems.size());
-            Log.d("SIZE: ", cardItems.size() + "");
+
         }
 
         // code to show configure the recyclerview.
