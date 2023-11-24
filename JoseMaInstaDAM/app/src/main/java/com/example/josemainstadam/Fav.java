@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 
 import com.example.josemainstadam.databinding.FragmentFavBinding;
 import com.example.josemainstadam.databinding.FragmentHomeBinding;
+import com.example.josemainstadam.ui.SaveCardAdapter;
+import com.example.josemainstadam.ui.SaveCardItem;
 import com.example.josemainstadam.ui.home.HomeFragment;
 import com.example.josemainstadam.ui.home.HomeViewModel;
 
@@ -27,7 +29,7 @@ public class Fav extends Fragment {
     private FragmentFavBinding binding;
 
     List<CardItem> cardItems;
-    List<CardItem> favItems;
+    List<SaveCardItem> favItems;
 
 
     public Fav() {
@@ -59,7 +61,7 @@ public class Fav extends Fragment {
         favItems = new ArrayList<>();
         setFavItems();
 
-        CardAdapter cardAdapter = new CardAdapter(favItems, requireContext());
+        SaveCardAdapter cardAdapter = new SaveCardAdapter(favItems, requireContext());
         recyclerView.setAdapter(cardAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
@@ -70,16 +72,15 @@ public class Fav extends Fragment {
         for (CardItem c : cardItems) {
             c.loadState(getContext());
             if (c.isLiked()) {
-                favItems.add(c);
+                favItems.add(new SaveCardItem(c.getUsername(), c.getMainImageResource()));
             }
         }
 
 
     }
 
-    public void getImageId() {
-        for (CardItem c : cardItems) {
-            
-        }
-    }
+
 }
+
+
+
