@@ -77,4 +77,9 @@ public class Fav extends Fragment {
 
     }
 
+    public void getImageId() {
+        for (CardItem c : cardItems) {
+            
+        }
+    }
 }
