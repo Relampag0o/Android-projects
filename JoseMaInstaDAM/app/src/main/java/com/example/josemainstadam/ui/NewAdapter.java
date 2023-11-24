@@ -14,6 +14,8 @@ import com.example.josemainstadam.CardAdapter;
 import com.example.josemainstadam.CardItem;
 import com.example.josemainstadam.R;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
@@ -36,13 +38,14 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         NewItem newItem = cardItems.get(position);
 
         // CARD CONFIG:
         holder.title.setText(newItem.getTitle());
         holder.newImage.setImageResource(newItem.getImageResource());
         holder.body.setText(newItem.getBody());
+        holder.author.setText(newItem.getAuthor());
     }
 
     @Override
@@ -57,6 +60,7 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
         TextView title;
 
         TextView body;
+        TextView author;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -64,6 +68,7 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
             newImage = itemView.findViewById(R.id.newImage);
             title = itemView.findViewById(R.id.tittle);
             body = itemView.findViewById(R.id.body);
+            author = itemView.findViewById(R.id.author);
         }
 
     }

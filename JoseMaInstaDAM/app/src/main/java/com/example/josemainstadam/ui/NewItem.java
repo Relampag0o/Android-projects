@@ -7,13 +7,23 @@ public class NewItem {
 
     private String body;
 
+    private String author;
 
-    public NewItem(int imageResource, String title, String body) {
+
+    public NewItem(int imageResource, String title, String body, String author) {
         this.imageResource = imageResource;
         this.title = title;
         this.body = body;
+        this.author = "by: " + author;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
     public int getImageResource() {
         return imageResource;
