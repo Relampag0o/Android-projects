@@ -1,6 +1,7 @@
 package com.example.josemainstadam.ui;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,11 @@ import java.util.List;
 public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardAdapter.ViewHolder> {
 
     private List<SaveCardItem> saveCardItems;
-    //private List<CardItem>
+    private List<CardItem> homeCardItems;
     private Context context;
 
-    public SaveCardAdapter(List<SaveCardItem> saveCardItems, Context context) {
+    public SaveCardAdapter(List<CardItem> homeCardItems, List<SaveCardItem> saveCardItems, Context context) {
+        this.homeCardItems = homeCardItems;
         this.saveCardItems = saveCardItems;
         this.context = context;
     }
@@ -44,11 +46,23 @@ public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardAdapter.ViewHo
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveCardItems.remove(holder.getAdapterPosition());
+                for (CardItem homeCardItem : homeCardItems) {
+                    Log.d("SAVECARD ID: ", saveCardItem.getId() + "HOMECARDID" + homeCardItem.getId());
+                    if (saveCardItem.getId() == homeCardItem.getId()) {
+                        saveCardItem.setSaved(false);
+                        homeCardItem.setLiked(false);
+                        homeCardItem.saveState(context);
+                        break;
+                    }
+                }
+
+                // Elimina el elemento de saveCardItems
+                saveCardItems.remove(saveCardItem);
                 notifyItemRemoved(holder.getAdapterPosition());
             }
         });
     }
+
 
     @Override
     public int getItemCount() {

@@ -61,7 +61,7 @@ public class Fav extends Fragment {
         favItems = new ArrayList<>();
         setFavItems();
 
-        SaveCardAdapter cardAdapter = new SaveCardAdapter(favItems, requireContext());
+        SaveCardAdapter cardAdapter = new SaveCardAdapter(cardItems, favItems, requireContext());
         recyclerView.setAdapter(cardAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
@@ -72,7 +72,7 @@ public class Fav extends Fragment {
         for (CardItem c : cardItems) {
             c.loadState(getContext());
             if (c.isLiked()) {
-                favItems.add(new SaveCardItem(c.getUsername(), c.getMainImageResource()));
+                favItems.add(new SaveCardItem(c.getId(), c.getUsername(), c.getMainImageResource()));
             }
         }
 
