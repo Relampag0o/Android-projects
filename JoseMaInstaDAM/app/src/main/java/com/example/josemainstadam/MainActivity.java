@@ -123,19 +123,19 @@ public class MainActivity extends AppCompatActivity {
 
             if (idItem == R.id.action_home) {
                 f = new HomeFragment();
-                title = "InstaDAM";
+                title = "          InstaDAM";
             }
             else if (idItem == R.id.action_search) {
                 f = new Search();
-                title = "Search friends";
+                title = "         Search friends";
             }
             else if (idItem == R.id.action_notifications) {
                 f = new Notification();
-                title = "News";
+                title = "             News";
             }
             else if (idItem == R.id.action_messages) {
                 f = new Fav();
-                title = "Your feed";
+                title = "           Your feed";
             }
 
             if (f != null) {
