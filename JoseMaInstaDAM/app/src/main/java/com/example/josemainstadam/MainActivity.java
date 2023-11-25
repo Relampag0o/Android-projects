@@ -2,6 +2,7 @@ package com.example.josemainstadam;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.view.Menu;
 
 import com.example.josemainstadam.ui.home.HomeFragment;
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -47,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
 
     private List<CardItem> cardItemList;
 
+    SpannableString spannableString;
+    Typeface typeface;
+    int fontSizeInPixels;
+    Toolbar toolbar;
+
     Fragment f;
 
     @Override
@@ -71,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         // MY CODE:
         // MAKING SURE THE HOME FRAGMENT IS CHARGED BY DEFAULT:
         loadFragment(new HomeFragment());
-        Toolbar toolbar = binding.appBarMain.toolbar;
+        toolbar = binding.appBarMain.toolbar;
 
         // CREATION OF THE PROFILE PICTURE IN THE TOP
         Bitmap bitmap = getBitmapFromVectorDrawable(R.drawable.programming);
@@ -81,11 +88,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         //CREATION OF THE FONT INSTADAM:
-        Typeface typeface = ResourcesCompat.getFont(this, R.font.instadamfont);
-        SpannableString spannableString = new SpannableString("     instaDAM by Jose M");
+        typeface = ResourcesCompat.getFont(this, R.font.instadamfont);
+        spannableString = new SpannableString("     instaDAM by Jose M");
         spannableString.setSpan(new TypefaceSpan(typeface), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        int fontSizeInPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 28, getResources().getDisplayMetrics());
+        fontSizeInPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 28, getResources().getDisplayMetrics());
         spannableString.setSpan(new AbsoluteSizeSpan(fontSizeInPixels), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         toolbar.setTitle(spannableString);
 
@@ -94,32 +101,57 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigation = findViewById(R.id.menuBot);
 
 
-
         // MANAGING THE BOTTOM MENU OPTIONS:
         bottomNavigation.setOnItemSelectedListener(item -> {
-            int idItem = item.getItemId();
-            f = null;
-            if (idItem == R.id.action_home)
-                f = new HomeFragment();
-            if (idItem == R.id.action_search)
-                f = new Search();
-            if (idItem == R.id.action_notifications)
-                f = new Notification();
-            if (idItem == R.id.action_messages){
-                f = new Fav();
+
+            // CODE TO MANAGE THE DOT
+            for (int i = 0; i < bottomNavigation.getMenu().size(); i++) {
+                bottomNavigation.removeBadge(bottomNavigation.getMenu().getItem(i).getItemId());
             }
 
+            // THE LOOP REMOVES EVERY BADGE THAT WAS ALREADY IN.
 
-            if (f != null)
+            BadgeDrawable badge = bottomNavigation.getOrCreateBadge(item.getItemId());
+            badge.setBackgroundColor(Color.WHITE);
+            badge.setVisible(true);
+
+            // WE SET A NEW BADGE TO THE CURRENT ITEM
+
+            int idItem = item.getItemId();
+            String title = " ";
+            f = null;
+
+            if (idItem == R.id.action_home) {
+                f = new HomeFragment();
+                title = "InstaDAM";
+            }
+            else if (idItem == R.id.action_search) {
+                f = new Search();
+                title = "Search friends";
+            }
+            else if (idItem == R.id.action_notifications) {
+                f = new Notification();
+                title = "News";
+            }
+            else if (idItem == R.id.action_messages) {
+                f = new Fav();
+                title = "Your feed";
+            }
+
+            if (f != null) {
                 loadFragment(f);
+                spannableString = new SpannableString(title);
+                spannableString.setSpan(new TypefaceSpan(typeface), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
+                int fontSizeInPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 28, getResources().getDisplayMetrics());
+                spannableString.setSpan(new AbsoluteSizeSpan(fontSizeInPixels), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                toolbar.setTitle(spannableString);
+            }
 
             return true;
         });
 
 
-
-        //Log.d("SIZE OF THE LIST IN HOME: ", cardItemList.size() + "");
     }
 
     // METHOD TO CHANGE THE FRAGMENTS:
@@ -131,6 +163,8 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.fragmentContainerView, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+
+
     }
 
 
