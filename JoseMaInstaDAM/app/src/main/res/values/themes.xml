@@ -19,7 +19,8 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.JoseMaInstaDAM.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.JoseMaInstaDAM.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.JoseMaInstaDAM.AppBarOverlay" parent="ThemeOverlay.AppCompat.DayNight" />
+
+    <style name="Theme.JoseMaInstaDAM.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
 </resources>
