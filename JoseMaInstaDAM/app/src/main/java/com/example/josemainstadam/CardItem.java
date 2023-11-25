@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import java.io.Serializable;
+import java.util.Random;
 
 public class CardItem {
     private int id;
@@ -14,12 +15,24 @@ public class CardItem {
 
     private boolean liked;
 
+    private int likes;
+
     public CardItem(int id, String username, int userImageResource, int mainImageResource) {
+        Random r = new Random();
         this.id = id;
         this.username = username;
         this.userImageResource = userImageResource;
         this.mainImageResource = mainImageResource;
         this.liked = false;
+        this.likes = r.nextInt(5000);
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 
     public String getUsername() {

@@ -1,6 +1,7 @@
 package com.example.josemainstadam;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,33 +45,40 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.username.setText(cardItem.getUsername());
         holder.userImage.setImageResource(cardItem.getUserImageResource());
         holder.mainImage.setImageResource(cardItem.getMainImageResource());
+        holder.likes.setText(cardItem.getLikes() + " Likes");
+        int d = R.drawable.smallheart;
 
+        // Set initial heart image
+        if (cardItem.isLiked()) {
+            holder.likeButton.setImageResource(R.drawable.smallheart);
+        } else {
+            holder.likeButton.setImageResource(R.drawable.whiteheart);
+        }
 
         // LIKE CONFIGURATION:
-        // LIKE CONFIGURATION:
+        holder.likeButton.setClickable(true);
+        holder.likeButton.setFocusable(true);
+
         holder.likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (cardItem.isLiked()) {
-                    Log.d("INFO", "Setting the boolean to false: ");
+                    // Si el elemento ya tiene "me gusta", lo quitamos
+                    cardItem.setLikes(cardItem.getLikes() - 1);
                     cardItem.setLiked(false);
-                    cardItem.saveState(context);  // Save state when unliked
-                    //holder.likeButton.setAnimation(R.raw.unlike); // Set unlike animation
-                    holder.likeButton.playAnimation(); // Play unlike animation
-                    notifyItemChanged(holder.getAdapterPosition());
-
+                    holder.likeButton.setImageResource(R.drawable.whiteheart);
                 } else {
-                    Log.d("INFO", "Setting the boolean to true: ");
+                    // Si el elemento no tiene "me gusta", lo añadimos
+                    cardItem.setLikes(cardItem.getLikes() + 1);
                     cardItem.setLiked(true);
-                    cardItem.saveState(context);  // Save state when liked
-                    holder.likeButton.setAnimation(R.raw.like); // Set like animation
-                    holder.likeButton.playAnimation(); // Play like animation
-                    Log.d("STATUS", cardItem.isLiked() + "");
-                    notifyItemChanged(holder.getAdapterPosition());
+                    holder.likeButton.setImageResource(R.drawable.smallheart);
                 }
+                cardItem.saveState(context);
+                notifyItemChanged(holder.getAdapterPosition());
             }
         });
     }
+
 
     @Override
     public int getItemCount() {
@@ -81,9 +89,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         ImageView userImage;
         TextView username;
         ImageView mainImage;
-        LottieAnimationView likeButton;
+        ImageButton likeButton;
 
         ImageView profileimg;
+        TextView likes;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -91,8 +100,9 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             userImage = itemView.findViewById(R.id.userImage);
             username = itemView.findViewById(R.id.username);
             mainImage = itemView.findViewById(R.id.mainImage);
-            likeButton = itemView.findViewById(R.id.animationView);
+            likeButton = itemView.findViewById(R.id.likeButton);
             profileimg = itemView.findViewById(R.id.profileimg);
+            likes = itemView.findViewById(R.id.likeCount);
         }
     }
 }
