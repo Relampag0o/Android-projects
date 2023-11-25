@@ -13,6 +13,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
@@ -43,6 +45,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.userImage.setImageResource(cardItem.getUserImageResource());
         holder.mainImage.setImageResource(cardItem.getMainImageResource());
 
+        // Set the correct animation based on the liked state
+        if (cardItem.isLiked()) {
+            holder.likeButton.setAnimation(R.raw.like);
+            holder.likeButton.playAnimation(); // Play like animation
+        }
 
         // LIKE CONFIGURATION:
         holder.likeButton.setOnClickListener(new View.OnClickListener() {
@@ -52,13 +59,15 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
                     Log.d("INFO", "Setting the boolean to false: ");
                     cardItem.setLiked(false);
                     cardItem.saveState(context);  // Save state when unliked
+                    holder.likeButton.cancelAnimation(); // Stop the animation
                     notifyItemChanged(holder.getAdapterPosition());
 
                 } else {
                     Log.d("INFO", "Setting the boolean to true: ");
                     cardItem.setLiked(true);
                     cardItem.saveState(context);  // Save state when liked
-
+                    holder.likeButton.setAnimation(R.raw.like); // Set like animation
+                    holder.likeButton.playAnimation(); // Play like animation
                     Log.d("STATUS", cardItem.isLiked() + "");
                     notifyItemChanged(holder.getAdapterPosition());
                 }
@@ -75,7 +84,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         ImageView userImage;
         TextView username;
         ImageView mainImage;
-        ImageButton likeButton;
+        LottieAnimationView likeButton;
 
         ImageView profileimg;
 
@@ -85,7 +94,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             userImage = itemView.findViewById(R.id.userImage);
             username = itemView.findViewById(R.id.username);
             mainImage = itemView.findViewById(R.id.mainImage);
-            likeButton = itemView.findViewById(R.id.likeButton);
+            likeButton = itemView.findViewById(R.id.animationView);
             profileimg = itemView.findViewById(R.id.profileimg);
         }
     }
