@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp">
@@ -21,22 +22,22 @@
         android:id="@+id/author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/profileimg"
         android:layout_marginStart="8dp"
         android:layout_marginTop="25dp"
+        android:layout_toEndOf="@id/profileimg"
         android:text="Author"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
-    <Button
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/deleteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
         android:background="@android:color/transparent"
         android:text="Delete"
-        android:textColor="@color/white" />
+        app:lottie_rawRes="@raw/graybookmark" />
 
 </RelativeLayout>

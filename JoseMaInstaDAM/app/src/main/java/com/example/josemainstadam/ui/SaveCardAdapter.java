@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.josemainstadam.CardItem;
 import com.example.josemainstadam.R;
 
@@ -56,9 +57,12 @@ public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardAdapter.ViewHo
                     }
                 }
 
-                // Elimina el elemento de saveCardItems
                 saveCardItems.remove(saveCardItem);
                 notifyItemRemoved(holder.getAdapterPosition());
+
+                // Configura y reproduce una animación
+                holder.deleteButton.setAnimation(R.raw.graybookmark);
+                holder.deleteButton.playAnimation();
             }
         });
     }
@@ -74,8 +78,7 @@ public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardAdapter.ViewHo
         TextView author;
         ImageView image;
         ImageView profileimg;
-        Button deleteButton;
-
+        LottieAnimationView deleteButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -83,6 +86,10 @@ public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardAdapter.ViewHo
             image = itemView.findViewById(R.id.image);
             profileimg = itemView.findViewById(R.id.profileimg);
             deleteButton = itemView.findViewById(R.id.deleteButton);
+
+            // Configura y reproduce una animación
+            deleteButton.setAnimation(R.raw.graybookmark);
+            deleteButton.playAnimation();
         }
     }
 }

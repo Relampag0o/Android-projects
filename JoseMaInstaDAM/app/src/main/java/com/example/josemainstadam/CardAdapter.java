@@ -45,12 +45,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.userImage.setImageResource(cardItem.getUserImageResource());
         holder.mainImage.setImageResource(cardItem.getMainImageResource());
 
-        // Set the correct animation based on the liked state
-        if (cardItem.isLiked()) {
-            holder.likeButton.setAnimation(R.raw.like);
-            holder.likeButton.playAnimation(); // Play like animation
-        }
 
+        // LIKE CONFIGURATION:
         // LIKE CONFIGURATION:
         holder.likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +55,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
                     Log.d("INFO", "Setting the boolean to false: ");
                     cardItem.setLiked(false);
                     cardItem.saveState(context);  // Save state when unliked
-                    holder.likeButton.cancelAnimation(); // Stop the animation
+                    //holder.likeButton.setAnimation(R.raw.unlike); // Set unlike animation
+                    holder.likeButton.playAnimation(); // Play unlike animation
                     notifyItemChanged(holder.getAdapterPosition());
 
                 } else {
