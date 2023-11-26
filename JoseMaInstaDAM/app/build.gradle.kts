@@ -19,7 +19,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -43,9 +46,9 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
-    implementation ("com.airbnb.android:lottie:6.2.0")
-    implementation ("com.squareup.picasso:picasso:2.8")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.airbnb.android:lottie:6.2.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 
 
 }

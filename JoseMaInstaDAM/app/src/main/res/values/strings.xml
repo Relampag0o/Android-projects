@@ -14,6 +14,8 @@
     <string name="like">Like</string>
     <string name="select_your_preferences">Select your preferences</string>
     <string name="save_preferences">Save Preferences</string>
+    <string name="author_s_name">Author\'s Name</string>
+    <string name="username">Username</string>
     <string-array name="news_type">
         <item>SCIENCE</item>
         <item>SPORTS</item>

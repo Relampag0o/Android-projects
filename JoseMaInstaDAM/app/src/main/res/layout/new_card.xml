@@ -39,7 +39,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="5dp"
-                android:text="Username"
+                android:text="@string/username"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:fontFamily="@font/latobold"/>
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:accessibilityHeading="false"
-            android:text="Author's Name"
+            android:text="@string/author_s_name"
             android:textColor="@color/ligthgray"
             android:textSize="12dp"
             android:layout_marginLeft="58dp"

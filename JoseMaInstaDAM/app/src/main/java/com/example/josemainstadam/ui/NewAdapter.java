@@ -10,10 +10,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.Target;
 import com.example.josemainstadam.CardAdapter;
 import com.example.josemainstadam.CardItem;
 import com.example.josemainstadam.R;
-import com.squareup.picasso.Picasso;
+
 
 import org.w3c.dom.Text;
 
@@ -48,12 +50,16 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
         holder.body.setText(newItem.getBody());
         holder.author.setText(newItem.getAuthor());
 
-        // Obtener la URL de la imagen desde el objeto NewItem
+        // GETTING THE URL:
+
         String imageUrl = cardItems.get(position).getUrl();
 
-        // Utilizar Picasso para cargar la imagen en el ImageView
-        Picasso.get().load(imageUrl).into(holder.photo);
-
+        // USING GLIDE BECAUSE PICCASO ISNT WORKING PROPERLY. ADDING THE IMAGE:
+        Glide.with(context)
+                .load(imageUrl)
+                .centerCrop() // 
+                .error(R.drawable.alert)
+                .into(holder.photo);
 
     }
 
