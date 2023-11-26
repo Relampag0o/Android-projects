@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/instagram_gradient">
+
+    <TextView
+        android:id="@+id/textWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="InstaDam"
+        android:textSize="48sp"
+        android:textColor="@android:color/white"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/instadamfont" />
+
+    <TextView
+        android:id="@+id/textBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/by_jose_maria"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/textWelcome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/instadamfont" />
+
+</RelativeLayout>

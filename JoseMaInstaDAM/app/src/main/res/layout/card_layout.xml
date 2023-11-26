@@ -17,7 +17,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/hacker"
-            app:civ_border_color="@color/white"
+            app:civ_border_color="#ee2a7b"
             app:civ_border_width="2dp" />
 
         <LinearLayout
@@ -31,7 +31,7 @@
                 android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Username"
+                android:text="@string/usernamehomecard"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -39,7 +39,7 @@
                 android:id="@+id/location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Location"
+                android:text="@string/location"
                 android:textColor="@color/ligthgray"
                 android:textSize="14sp" />
 
@@ -111,7 +111,7 @@
             android:id="@+id/likeCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0 likes"
+            android:text="@string/likes"
             android:textColor="@color/white"
             android:layout_marginTop="8dp" />
 
@@ -125,14 +125,14 @@
                 android:id="@+id/uploader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Uploader"
+                android:text="@string/uploader"
                 android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Description"
+                android:text="@string/description"
                 android:textColor="@color/white"
                 android:layout_marginStart="8dp" />
 
@@ -142,7 +142,7 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Date"
+            android:text="@string/date"
             android:textColor="@color/ligthgray"
             android:layout_marginTop="8dp" />
 

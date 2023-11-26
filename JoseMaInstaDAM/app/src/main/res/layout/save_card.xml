@@ -25,7 +25,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="25dp"
         android:layout_toEndOf="@id/profileimg"
-        android:text="Author"
+        android:text="@string/author"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
@@ -37,7 +37,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:background="@android:color/transparent"
-        android:text="Delete"
+        android:text="@string/delete"
         app:lottie_rawRes="@raw/graybookmark" />
 
 </RelativeLayout>

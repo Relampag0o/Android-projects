@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JoseMaInstaDAM</string>
+    <string name="app_name" translatable="true">JoseMaInstaDAM</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -16,6 +16,19 @@
     <string name="save_preferences">Save Preferences</string>
     <string name="author_s_name">Author\'s Name</string>
     <string name="username">Username</string>
+    <string name="location">Location</string>
+    <string name="usernamehomecard">Username</string>
+    <string name="likes">0 likes</string>
+    <string name="author">Author</string>
+    <string name="delete">Delete</string>
+    <string name="description">Description</string>
+    <string name="uploader">Uploader</string>
+    <string name="date">Date</string>
+    <string name="username3">Username</string>
+    <string name="full_name">Full Name</string>
+    <string name="amountfollowers">0 followers</string>
+    <string name="instadam">InstaDam</string>
+    <string name="by_jose_maria">by Jose Maria</string>
     <string-array name="news_type">
         <item>SCIENCE</item>
         <item>SPORTS</item>
