@@ -60,7 +60,6 @@ public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardAdapter.ViewHo
                 saveCardItems.remove(saveCardItem);
                 notifyItemRemoved(holder.getAdapterPosition());
 
-                // Configura y reproduce una animación
                 holder.deleteButton.setAnimation(R.raw.defheart);
                 holder.deleteButton.playAnimation();
             }
