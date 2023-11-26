@@ -14,11 +14,11 @@
         android:gravity="center"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
-        android:textColor="@color/ligthgray"
+        android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:fontFamily="@font/cicrcula"/>
+        android:fontFamily="@font/latobold"/>
 
     <Spinner
         android:id="@+id/newsSpinner"
@@ -42,6 +42,7 @@
         app:layout_constraintTop_toBottomOf="@id/newsSpinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:circularflow_radiusInDP="20dp"
         />
 
     <androidx.recyclerview.widget.RecyclerView

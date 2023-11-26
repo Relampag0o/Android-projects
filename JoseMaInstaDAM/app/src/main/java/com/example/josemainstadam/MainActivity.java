@@ -46,13 +46,15 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+
+    // WE USE THE BINDING AS A WAY OF RETRIEVING ELEMENTS INSTEAD USING VIEW.FINDELEMENTBYID..
     private ActivityMainBinding binding;
 
     private List<HomeCardItem> homeCardItemList;
 
     SpannableString spannableString;
     Typeface typeface;
-    int fontSizeInPixels;
+
     Toolbar toolbar;
 
     Fragment f;
@@ -72,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarMain.toolbar);
-
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -89,27 +90,11 @@ public class MainActivity extends AppCompatActivity {
         loadFragment(new HomeFragment());
         toolbar = binding.appBarMain.toolbar;
 
-        // CREATION OF THE PROFILE PICTURE IN THE TOP
-        Bitmap bitmap = getBitmapFromVectorDrawable(R.drawable.programming);
-        Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, 170, 170, true);
-        Drawable userImage = new BitmapDrawable(getResources(), resizedBitmap);
-        toolbar.setNavigationIcon(userImage);
-
-
-        //CREATION OF THE FONT INSTADAM:
-        typeface = ResourcesCompat.getFont(this, R.font.instadamfont);
-        spannableString = new SpannableString("     instaDAM by Jose M");
-        spannableString.setSpan(new TypefaceSpan(typeface), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        fontSizeInPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 28, getResources().getDisplayMetrics());
-        spannableString.setSpan(new AbsoluteSizeSpan(fontSizeInPixels), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        toolbar.setTitle(spannableString);
+        setupToolbar("           InstaDAM");
 
 
         // instances
         BottomNavigationView bottomNavigation = findViewById(R.id.menuBot);
-
-
         // MANAGING THE BOTTOM MENU OPTIONS:
         bottomNavigation.setOnItemSelectedListener(item -> {
 
@@ -146,12 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (f != null) {
                 loadFragment(f);
-                spannableString = new SpannableString(title);
-                spannableString.setSpan(new TypefaceSpan(typeface), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                int fontSizeInPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 28, getResources().getDisplayMetrics());
-                spannableString.setSpan(new AbsoluteSizeSpan(fontSizeInPixels), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                toolbar.setTitle(spannableString);
+                setupToolbar(title);
             }
 
             return true;
@@ -209,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //METHOD TO LOAD THE WELCOME ACTIVITY.
     private void loadMainActivity() {
         if (!executed) {
             Intent welcomeIntent = new Intent(this, Welcome.class);
@@ -216,5 +197,31 @@ public class MainActivity extends AppCompatActivity {
             finish();
             executed = true;
         }
+    }
+
+
+
+    /**
+     * METHOD TO SETUP NECESSARY THINGS FOR THE TOOLBAR:
+     * THE ROUNDED PROFILE PIC AND THE TITLE BASED ON THE FRAGMENT.
+     * @param text THIS TEXT IS THE TITTLE THAT WE WANT TO SET FROM THE FRAGMENT.
+     */
+    private void setupToolbar(String text) {
+        toolbar = binding.appBarMain.toolbar;
+
+        // CREATION OF THE PROFILE PICTURE IN THE TOP
+        Bitmap bitmap = getBitmapFromVectorDrawable(R.drawable.programming);
+        Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, 170, 170, true);
+        Drawable userImage = new BitmapDrawable(getResources(), resizedBitmap);
+        toolbar.setNavigationIcon(userImage);
+
+        // CREATION OF THE FONT INSTADAM:
+        typeface = ResourcesCompat.getFont(this, R.font.instadamfont);
+        spannableString = new SpannableString(text);
+        spannableString.setSpan(new TypefaceSpan(typeface), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        int fontSizeInPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 28, getResources().getDisplayMetrics());
+        spannableString.setSpan(new AbsoluteSizeSpan(fontSizeInPixels), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        toolbar.setTitle(spannableString);
     }
 }

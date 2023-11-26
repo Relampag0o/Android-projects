@@ -19,7 +19,7 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    // this is a differente way of retriveing an element.
+    // this is a different way of retriveing an element.
     // we use this instead the view.FindByid!!
 
     private FragmentHomeBinding binding;

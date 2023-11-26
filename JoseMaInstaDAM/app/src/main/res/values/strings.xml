@@ -29,6 +29,9 @@
     <string name="amountfollowers">0 followers</string>
     <string name="instadam">InstaDam</string>
     <string name="by_jose_maria">by Jose Maria</string>
+    <string name="notifications_settings">Notifications settings</string>
+    <string name="settings">Settings</string>
+    <string name="profile">Profile</string>
     <string-array name="news_type">
         <item>SCIENCE</item>
         <item>SPORTS</item>

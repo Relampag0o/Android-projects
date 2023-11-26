@@ -15,7 +15,7 @@ public class Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcomescreen);
 
-
+        // WE USE THE HANDLER TO MAKE THE APP SLEEP FOR SOME SECONDS.
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
