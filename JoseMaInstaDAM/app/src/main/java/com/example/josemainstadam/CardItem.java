@@ -12,12 +12,14 @@ public class CardItem {
     private String username;
     private int userImageResource;
     private int mainImageResource;
-
     private boolean liked;
-
     private int likes;
+    private String location;
+    private String uploader;
+    private String description;
+    private String date;
 
-    public CardItem(int id, String username, int userImageResource, int mainImageResource) {
+    public CardItem(int id, String username, int userImageResource, int mainImageResource, String location, String uploader, String description, String date) {
         Random r = new Random();
         this.id = id;
         this.username = username;
@@ -25,6 +27,42 @@ public class CardItem {
         this.mainImageResource = mainImageResource;
         this.liked = false;
         this.likes = r.nextInt(5000);
+        this.location = location;
+        this.uploader = uploader;
+        this.description = description;
+        this.date = date;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getUploader() {
+        return uploader;
+    }
+
+    public void setUploader(String uploader) {
+        this.uploader = uploader;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public int getLikes() {

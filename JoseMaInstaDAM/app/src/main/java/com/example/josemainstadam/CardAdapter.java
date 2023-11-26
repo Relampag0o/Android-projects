@@ -45,9 +45,13 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
         // CARD CONFIGURATION:
         holder.username.setText(cardItem.getUsername());
+        holder.location.setText(cardItem.getLocation());
         holder.userImage.setImageResource(cardItem.getUserImageResource());
         holder.mainImage.setImageResource(cardItem.getMainImageResource());
         holder.likes.setText(cardItem.getLikes() + " Likes");
+        holder.uploader.setText(cardItem.getUploader());
+        holder.description.setText(cardItem.getDescription());
+        holder.date.setText(cardItem.getDate());
 
 
         // LIKE CONFIGURATION:
@@ -95,9 +99,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         TextView username;
         ImageView mainImage;
         LottieAnimationView likeButton;
-
-        ImageView profileimg;
         TextView likes;
+        TextView location;
+        TextView uploader;
+        TextView description;
+        TextView date;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -106,8 +112,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             username = itemView.findViewById(R.id.username);
             mainImage = itemView.findViewById(R.id.mainImage);
             likeButton = itemView.findViewById(R.id.likeButton);
-            profileimg = itemView.findViewById(R.id.profileimg);
             likes = itemView.findViewById(R.id.likeCount);
+            location = itemView.findViewById(R.id.location);
+            uploader = itemView.findViewById(R.id.uploader);
+            description = itemView.findViewById(R.id.description);
+            date = itemView.findViewById(R.id.date);
         }
     }
 }

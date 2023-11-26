@@ -34,21 +34,12 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         cardItems = new ArrayList<>();
-        cardItems.add(new CardItem(1, "User1", R.drawable.hacker, R.drawable.china));
-        cardItems.add(new CardItem(2, "User2", R.drawable.hacker2, R.drawable.us));
-        cardItems.add(new CardItem(3, "User1", R.drawable.hacker, R.drawable.kr));
-        cardItems.add(new CardItem(4, "User2", R.drawable.hacker2, R.drawable.collie));
-        cardItems.add(new CardItem(5, "User1", R.drawable.hacker, R.drawable.hacker));
-        cardItems.add(new CardItem(6, "User2", R.drawable.hacker2, R.drawable.hacker));
-        cardItems.add(new CardItem(7, "User1", R.drawable.hacker, R.drawable.hacker));
-        cardItems.add(new CardItem(8, "User2", R.drawable.hacker2, R.drawable.hacker));
-        Log.d("SIZE IN HOME:", cardItems.size() + "");
+        addData();
         CardAdapter cardAdapter = new CardAdapter(cardItems, requireContext());
         binding.recyclerView.setAdapter(cardAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
         binding.recyclerView.setLayoutManager(layoutManager);
 
-        // CODE FOR THE LIST:
         return root;
     }
 
@@ -56,6 +47,18 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    public void addData() {
+        cardItems.add(new CardItem(1, "User1", R.drawable.person1, R.drawable.china, "China", "User1", "Exploring the Great Wall", "20/11/2023"));
+        cardItems.add(new CardItem(2, "User2", R.drawable.person2, R.drawable.us, "United States", "User2", "Enjoying the Grand Canyon", "22/11/2023"));
+        cardItems.add(new CardItem(3, "User1", R.drawable.tyler1, R.drawable.kr, "South Korea", "User1", "Visiting Gyeongbokgung Palace", "24/11/2023"));
+        cardItems.add(new CardItem(4, "User2", R.drawable.dualipa, R.drawable.collie, "Australia", "User2", "Observing the Sydney Opera House", "26/11/2023"));
+        cardItems.add(new CardItem(5, "User1", R.drawable.person7, R.drawable.hacker, "Germany", "User1", "Touring the Berlin Wall", "28/11/2023"));
+        cardItems.add(new CardItem(6, "User2", R.drawable.person8, R.drawable.hacker, "France", "User2", "Admiring the Eiffel Tower", "30/11/2023"));
+        cardItems.add(new CardItem(7, "User1", R.drawable.hacker, R.drawable.hacker, "Italy", "User1", "Exploring the Colosseum", "02/12/2023"));
+        cardItems.add(new CardItem(8, "User2", R.drawable.me, R.drawable.hacker, "United Kingdom", "User2", "Visiting the Tower of London", "04/12/2023"));
+
     }
 
 
