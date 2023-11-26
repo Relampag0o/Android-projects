@@ -77,14 +77,15 @@ public class Notification extends Fragment {
 
     public void addData() {
 
-        newItems.add(new NewItem(R.drawable.atomic, "The Wonders of Quantum Physics", "Quantum physics is a fascinating field that challenges our understanding of the universe.", "Alice Johnson", Category.SCIENCE));
-        newItems.add(new NewItem(R.drawable.sport, "The Thrill of the Soccer Season", "The soccer season is in full swing, with teams battling it out for the top spot.", "Bob Smith", Category.SPORTS));
-        newItems.add(new NewItem(R.drawable.ai, "The Future of Tech", "Stay updated with the latest tech news and trends.", "Charlie Brown", Category.TECHNOLOGY));
-        newItems.add(new NewItem(R.drawable.health, "Health and Wellness", "Get the latest news and advice on health, nutrition, fitness, and more.", "David Johnson", Category.HEALTH));
-        newItems.add(new NewItem(R.drawable.travel, "Travel the World", "Discover the beauty of the world. Get travel tips, guides, and inspiring stories from experienced travelers.", "Eva Green", Category.TRAVEL));
-        newItems.add(new NewItem(R.drawable.finance, "Finance and Economy", "Stay informed with the latest news on the economy, personal finance, and investment strategies.", "Frank White", Category.FINANCE));
-        newItems.add(new NewItem(R.drawable.science, "Exploring the Universe", "The universe is vast and full of mysteries. Join us as we explore the cosmos.", "Grace Lee", Category.SCIENCE));
-        newItems.add(new NewItem(R.drawable.sport, "Basketball Season Highlights", "Catch up on the highlights from this basketball season.", "Harry Potter", Category.SPORTS));
+        newItems.add(new NewItem(R.drawable.atomic, "The Wonders of Quantum Physics", "Quantum physics is a fascinating field that challenges our understanding of the universe.", "Alice Johnson", Category.SCIENCE,"https://concepto.de/wp-content/uploads/2018/08/f%C3%ADsica-e1534938838719.jpg"));
+        newItems.add(new NewItem(R.drawable.sport, "The Thrill of the Soccer Season", "The soccer season is in full swing, with teams battling it out for the top spot.", "Bob Smith", Category.SPORTS,"https://storage.googleapis.com/pod_public/1300/169544.jpg"));
+        /*
+        newItems.add(new NewItem(R.drawable.ai, "The Future of Tech", "Stay updated with the latest tech news and trends.", "Charlie Brown", Category.TECHNOLOGY,""));
+        newItems.add(new NewItem(R.drawable.health, "Health and Wellness", "Get the latest news and advice on health, nutrition, fitness, and more.", "David Johnson", Category.HEALTH,""));
+        newItems.add(new NewItem(R.drawable.travel, "Travel the World", "Discover the beauty of the world. Get travel tips, guides, and inspiring stories from experienced travelers.", "Eva Green", Category.TRAVEL,""));
+        newItems.add(new NewItem(R.drawable.finance, "Finance and Economy", "Stay informed with the latest news on the economy, personal finance, and investment strategies.", "Frank White", Category.FINANCE,""));
+        newItems.add(new NewItem(R.drawable.science, "Exploring the Universe", "The universe is vast and full of mysteries. Join us as we explore the cosmos.", "Grace Lee", Category.SCIENCE,""));
+        newItems.add(new NewItem(R.drawable.sport, "Basketball Season Highlights", "Catch up on the highlights from this basketball season.", "Harry Potter", Category.SPORTS,""));
         newItems.add(new NewItem(R.drawable.ai, "Advancements in AI", "Artificial Intelligence is transforming the way we live and work.", "Ivy Smith", Category.TECHNOLOGY));
         newItems.add(new NewItem(R.drawable.health, "Mental Health Matters", "Understanding mental health is crucial in today's fast-paced world.", "Jack Brown", Category.HEALTH));
         newItems.add(new NewItem(R.drawable.travel, "Adventure Awaits", "Embark on an adventure of a lifetime with our travel guides.", "Kate Johnson", Category.TRAVEL));
@@ -98,6 +99,8 @@ public class Notification extends Fragment {
         newItems.add(new NewItem(R.drawable.atomic, "The World of Biology", "Dive into the world of biology and discover the secrets of life.", "Sophia Smith", Category.SCIENCE));
         newItems.add(new NewItem(R.drawable.sport, "The Olympics", "Catch up on the latest news from the Olympics.", "Tom Brown", Category.SPORTS));
 
+
+         */
 
     }
 

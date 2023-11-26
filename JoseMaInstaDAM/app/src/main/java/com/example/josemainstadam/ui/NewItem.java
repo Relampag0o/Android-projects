@@ -14,13 +14,24 @@ public class NewItem {
 
     private Category cat;
 
+    private String url;
 
-    public NewItem(int imageResource, String title, String body, String author, Category c) {
+
+    public NewItem(int imageResource, String title, String body, String author, Category c,String url) {
         this.imageResource = imageResource;
         this.title = title;
         this.body = body;
         this.author = "by: " + author;
         this.cat = c;
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getAuthor() {

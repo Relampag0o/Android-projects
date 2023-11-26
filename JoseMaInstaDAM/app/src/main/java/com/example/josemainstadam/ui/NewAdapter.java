@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.josemainstadam.CardAdapter;
 import com.example.josemainstadam.CardItem;
 import com.example.josemainstadam.R;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -46,6 +47,14 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
         holder.newImage.setImageResource(newItem.getImageResource());
         holder.body.setText(newItem.getBody());
         holder.author.setText(newItem.getAuthor());
+
+        // Obtener la URL de la imagen desde el objeto NewItem
+        String imageUrl = cardItems.get(position).getUrl();
+
+        // Utilizar Picasso para cargar la imagen en el ImageView
+        Picasso.get().load(imageUrl).into(holder.photo);
+
+
     }
 
     @Override
@@ -62,6 +71,7 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
         TextView body;
         TextView author;
 
+        ImageView photo;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,6 +79,7 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
             title = itemView.findViewById(R.id.tittle);
             body = itemView.findViewById(R.id.body);
             author = itemView.findViewById(R.id.author);
+            photo = itemView.findViewById(R.id.photo);
         }
 
     }
