@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (idItem == R.id.action_messages) {
                 f = new Fav();
-                title = "           Your feed";
+                title = "           Your likes";
             }
 
             if (f != null) {

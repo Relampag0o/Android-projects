@@ -23,7 +23,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class HomeFragment extends Fragment {
+
+    // this is a differente way of retriveing an element.
+    // we use this instead the view.FindByid!!
 
     private FragmentHomeBinding binding;
 
@@ -39,7 +43,6 @@ public class HomeFragment extends Fragment {
         binding.recyclerView.setAdapter(cardAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
         binding.recyclerView.setLayoutManager(layoutManager);
-
         return root;
     }
 
@@ -48,6 +51,8 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+    // method to add data.
 
     public void addData() {
         cardItems.add(new CardItem(1, "User1", R.drawable.person1, R.drawable.china, "China", "User1", "Exploring the Great Wall", "20/11/2023"));

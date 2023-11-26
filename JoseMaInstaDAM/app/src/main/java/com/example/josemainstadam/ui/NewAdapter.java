@@ -57,7 +57,7 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
         // USING GLIDE BECAUSE PICCASO ISNT WORKING PROPERLY. ADDING THE IMAGE:
         Glide.with(context)
                 .load(imageUrl)
-                .centerCrop() // 
+                .centerCrop() //
                 .error(R.drawable.alert)
                 .into(holder.photo);
 
