@@ -1,13 +1,12 @@
-package com.example.josemainstadam;
+package com.example.josemainstadam.home;
 
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import java.io.Serializable;
 import java.util.Random;
 
-public class CardItem {
+public class HomeCardItem {
     private int id;
     private String username;
     private int userImageResource;
@@ -19,7 +18,7 @@ public class CardItem {
     private String description;
     private String date;
 
-    public CardItem(int id, String username, int userImageResource, int mainImageResource, String location, String uploader, String description, String date) {
+    public HomeCardItem(int id, String username, int userImageResource, int mainImageResource, String location, String uploader, String description, String date) {
         Random r = new Random();
         this.id = id;
         this.username = username;

@@ -1,25 +1,21 @@
-package com.example.josemainstadam;
+package com.example.josemainstadam.fav;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.josemainstadam.databinding.FragmentFavBinding;
-import com.example.josemainstadam.databinding.FragmentHomeBinding;
-import com.example.josemainstadam.ui.SaveCardAdapter;
-import com.example.josemainstadam.ui.SaveCardItem;
-import com.example.josemainstadam.ui.home.HomeFragment;
-import com.example.josemainstadam.ui.home.HomeViewModel;
+import com.example.josemainstadam.home.HomeCardItem;
+import com.example.josemainstadam.R;
+import com.example.josemainstadam.home.HomeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +24,7 @@ import java.util.List;
 public class Fav extends Fragment {
     private FragmentFavBinding binding;
 
-    List<CardItem> cardItems;
+    List<HomeCardItem> homeCardItems;
     List<SaveCardItem> favItems;
 
 
@@ -51,17 +47,17 @@ public class Fav extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
-            cardItems = HomeFragment.cardItems;
+            homeCardItems = HomeFragment.homeCardItems;
 
         }
 
         // code to show configure the recyclerview.
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        cardItems = HomeFragment.cardItems;
+        homeCardItems = HomeFragment.homeCardItems;
         favItems = new ArrayList<>();
         setFavItems();
 
-        SaveCardAdapter cardAdapter = new SaveCardAdapter(cardItems, favItems, requireContext());
+        SaveCardAdapter cardAdapter = new SaveCardAdapter(homeCardItems, favItems, requireContext());
         recyclerView.setAdapter(cardAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
@@ -69,7 +65,7 @@ public class Fav extends Fragment {
     }
 
     public void setFavItems() {
-        for (CardItem c : cardItems) {
+        for (HomeCardItem c : homeCardItems) {
             c.loadState(getContext());
             if (c.isLiked()) {
                 favItems.add(new SaveCardItem(c.getId(), c.getUsername(), c.getMainImageResource(),c.getUserImageResource()));

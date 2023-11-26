@@ -1,15 +1,9 @@
-package com.example.josemainstadam;
+package com.example.josemainstadam.home;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,17 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.josemainstadam.R;
 
 import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    private List<CardItem> cardItems;
+    private List<HomeCardItem> homeCardItems;
 
     private Context context;
 
-    public CardAdapter(List<CardItem> cardItems, Context context) {
-        this.cardItems = cardItems;
+    public CardAdapter(List<HomeCardItem> homeCardItems, Context context) {
+        this.homeCardItems = homeCardItems;
         this.context = context;
     }
 
@@ -41,17 +36,17 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        CardItem cardItem = cardItems.get(position);
+        HomeCardItem homeCardItem = homeCardItems.get(position);
 
         // CARD CONFIGURATION:
-        holder.username.setText(cardItem.getUsername());
-        holder.location.setText(cardItem.getLocation());
-        holder.userImage.setImageResource(cardItem.getUserImageResource());
-        holder.mainImage.setImageResource(cardItem.getMainImageResource());
-        holder.likes.setText(cardItem.getLikes() + " Likes");
-        holder.uploader.setText(cardItem.getUploader());
-        holder.description.setText(cardItem.getDescription());
-        holder.date.setText(cardItem.getDate());
+        holder.username.setText(homeCardItem.getUsername());
+        holder.location.setText(homeCardItem.getLocation());
+        holder.userImage.setImageResource(homeCardItem.getUserImageResource());
+        holder.mainImage.setImageResource(homeCardItem.getMainImageResource());
+        holder.likes.setText(homeCardItem.getLikes() + " Likes");
+        holder.uploader.setText(homeCardItem.getUploader());
+        holder.description.setText(homeCardItem.getDescription());
+        holder.date.setText(homeCardItem.getDate());
 
 
         // LIKE CONFIGURATION:
@@ -59,7 +54,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.likeButton.setFocusable(true);
 
         // Set initial Lottie animation
-        if (cardItem.isLiked()) {
+        if (homeCardItem.isLiked()) {
             holder.likeButton.setAnimation(R.raw.defheart);
             holder.likeButton.playAnimation();
         } else {
@@ -70,20 +65,20 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (cardItem.isLiked()) {
+                if (homeCardItem.isLiked()) {
                     // Si el elemento ya tiene "me gusta", lo quitamos
-                    cardItem.setLikes(cardItem.getLikes() - 1);
-                    cardItem.setLiked(false);
+                    homeCardItem.setLikes(homeCardItem.getLikes() - 1);
+                    homeCardItem.setLiked(false);
                     holder.likeButton.setAnimation(R.raw.graylike);
                     holder.likeButton.playAnimation();
                 } else {
                     // Si el elemento no tiene "me gusta", lo añadimos
-                    cardItem.setLikes(cardItem.getLikes() + 1);
-                    cardItem.setLiked(true);
+                    homeCardItem.setLikes(homeCardItem.getLikes() + 1);
+                    homeCardItem.setLiked(true);
                     holder.likeButton.setAnimation(R.raw.defheart);
                     holder.likeButton.playAnimation();
                 }
-                cardItem.saveState(context);
+                homeCardItem.saveState(context);
                 notifyItemChanged(holder.getAdapterPosition());
             }
         });
@@ -91,7 +86,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return cardItems.size();
+        return homeCardItems.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

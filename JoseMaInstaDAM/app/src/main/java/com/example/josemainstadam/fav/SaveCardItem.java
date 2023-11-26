@@ -1,4 +1,4 @@
-package com.example.josemainstadam.ui;
+package com.example.josemainstadam.fav;
 
 public class SaveCardItem {
 

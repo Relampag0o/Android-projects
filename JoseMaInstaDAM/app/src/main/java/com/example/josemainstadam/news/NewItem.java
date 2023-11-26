@@ -1,6 +1,4 @@
-package com.example.josemainstadam.ui;
-
-import com.example.josemainstadam.Category;
+package com.example.josemainstadam.news;
 
 public class NewItem {
 

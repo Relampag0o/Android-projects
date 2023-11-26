@@ -1,4 +1,4 @@
-package com.example.josemainstadam;
+package com.example.josemainstadam.search;
 
 
 

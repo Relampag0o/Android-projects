@@ -1,4 +1,4 @@
-package com.example.josemainstadam.ui.gallery;
+package com.example.josemainstadam.classes;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

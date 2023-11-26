@@ -1,4 +1,4 @@
-package com.example.josemainstadam;
+package com.example.josemainstadam.news;
 
 import android.os.Bundle;
 
@@ -8,27 +8,24 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import com.example.josemainstadam.ui.NewAdapter;
-import com.example.josemainstadam.ui.NewItem;
-import com.example.josemainstadam.ui.home.HomeFragment;
+import com.example.josemainstadam.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Notification extends Fragment {
+public class NewFragment extends Fragment {
     List<NewItem> newItems;
     List<NewItem> preferedItems;
     Spinner sp;
     Button saveButton;
 
-    public Notification() {
+    public NewFragment() {
         // Required empty public constructor
     }
 

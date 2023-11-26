@@ -1,11 +1,10 @@
-package com.example.josemainstadam.ui;
+package com.example.josemainstadam.fav;
 
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.josemainstadam.CardItem;
+import com.example.josemainstadam.home.HomeCardItem;
 import com.example.josemainstadam.R;
 
 import java.util.List;
@@ -21,11 +20,11 @@ import java.util.List;
 public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardAdapter.ViewHolder> {
 
     private List<SaveCardItem> saveCardItems;
-    private List<CardItem> homeCardItems;
+    private List<HomeCardItem> homeHomeCardItems;
     private Context context;
 
-    public SaveCardAdapter(List<CardItem> homeCardItems, List<SaveCardItem> saveCardItems, Context context) {
-        this.homeCardItems = homeCardItems;
+    public SaveCardAdapter(List<HomeCardItem> homeHomeCardItems, List<SaveCardItem> saveCardItems, Context context) {
+        this.homeHomeCardItems = homeHomeCardItems;
         this.saveCardItems = saveCardItems;
         this.context = context;
     }
@@ -47,7 +46,7 @@ public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardAdapter.ViewHo
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (CardItem homeCardItem : homeCardItems) {
+                for (HomeCardItem homeCardItem : homeHomeCardItems) {
                     Log.d("SAVECARD ID: ", saveCardItem.getId() + "HOMECARDID" + homeCardItem.getId());
                     if (saveCardItem.getId() == homeCardItem.getId()) {
                         saveCardItem.setSaved(false);

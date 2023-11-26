@@ -1,4 +1,4 @@
-package com.example.josemainstadam.ui;
+package com.example.josemainstadam.news;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,13 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.Target;
-import com.example.josemainstadam.CardAdapter;
-import com.example.josemainstadam.CardItem;
 import com.example.josemainstadam.R;
 
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 

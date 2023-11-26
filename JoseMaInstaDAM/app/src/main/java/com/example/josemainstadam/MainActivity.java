@@ -14,14 +14,16 @@ import android.text.style.AbsoluteSizeSpan;
 import android.text.style.TypefaceSpan;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.MenuInflater;
-import android.view.View;
 import android.view.Menu;
 
-import com.example.josemainstadam.ui.home.HomeFragment;
+import com.example.josemainstadam.databinding.ActivityMainBinding;
+import com.example.josemainstadam.fav.Fav;
+import com.example.josemainstadam.home.HomeCardItem;
+import com.example.josemainstadam.news.NewFragment;
+import com.example.josemainstadam.search.SearchFragment;
+import com.example.josemainstadam.home.HomeFragment;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.appcompat.widget.Toolbar;
@@ -36,10 +38,6 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.josemainstadam.databinding.ActivityMainBinding;
-
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
-    private List<CardItem> cardItemList;
+    private List<HomeCardItem> homeCardItemList;
 
     SpannableString spannableString;
     Typeface typeface;
@@ -126,11 +124,11 @@ public class MainActivity extends AppCompatActivity {
                 title = "          InstaDAM";
             }
             else if (idItem == R.id.action_search) {
-                f = new Search();
+                f = new SearchFragment();
                 title = "         Search friends";
             }
             else if (idItem == R.id.action_notifications) {
-                f = new Notification();
+                f = new NewFragment();
                 title = "             News";
             }
             else if (idItem == R.id.action_messages) {
