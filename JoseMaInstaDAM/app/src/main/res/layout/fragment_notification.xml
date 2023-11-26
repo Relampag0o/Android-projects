@@ -12,13 +12,14 @@
         android:text="@string/select_your_preferences"
         android:textSize="24sp"
         android:gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:fontFamily="@font/latobold"/>
+        android:fontFamily="@font/latobold"
+        />
 
     <Spinner
         android:id="@+id/newsSpinner"
@@ -28,7 +29,8 @@
         android:entries="@array/news_type"
         app:layout_constraintTop_toBottomOf="@id/selectPrefText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_goneMarginTop="15dp"/>
 
     <Button
         android:id="@+id/saveButton"
@@ -38,11 +40,11 @@
         android:textSize="18sp"
         android:backgroundTint="@color/beautyblue"
         android:textColor="@android:color/white"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/newsSpinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:circularflow_radiusInDP="20dp"
+
         />
 
     <androidx.recyclerview.widget.RecyclerView

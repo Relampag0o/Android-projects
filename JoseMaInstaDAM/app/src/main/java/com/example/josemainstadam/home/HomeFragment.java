@@ -48,14 +48,14 @@ public class HomeFragment extends Fragment {
     // method to add data.
 
     public void addData() {
-        homeCardItems.add(new HomeCardItem(1, "Jhon_Doe3", R.drawable.person1, R.drawable.china, "China", "Jhon_Doe3", "Exploring the Great Wall", "20/11/2023"));
-        homeCardItems.add(new HomeCardItem(2, "Clarkk_34", R.drawable.person2, R.drawable.us, "United States", "Clarkk_34", "Enjoying the Grand Canyon", "22/11/2023"));
-        homeCardItems.add(new HomeCardItem(3, "Evans1", R.drawable.tyler1, R.drawable.kr, "South Korea", "Evans1", "Visiting Gyeongbokgung Palace", "24/11/2023"));
-        homeCardItems.add(new HomeCardItem(4, "Valdorep", R.drawable.person2, R.drawable.collie, "Australia", "Valdorep", "Observing the Sydney Opera House", "26/11/2023"));
-        homeCardItems.add(new HomeCardItem(5, "Coder_Juan", R.drawable.person7, R.drawable.hacker, "Germany", "Coder_Juan", "Touring the Berlin Wall", "28/11/2023"));
-        homeCardItems.add(new HomeCardItem(6, "Laura", R.drawable.person8, R.drawable.hacker, "France", "Laura", "Admiring the Eiffel Tower", "30/11/2023"));
-        homeCardItems.add(new HomeCardItem(7, "Michael45", R.drawable.hacker, R.drawable.hacker, "Italy", "Michael45", "Exploring the Colosseum", "02/12/2023"));
-        homeCardItems.add(new HomeCardItem(8, "Josemrl17", R.drawable.me, R.drawable.hacker, "United Kingdom", "Jose", "Visiting the Tower of London", "04/12/2023"));
+        homeCardItems.add(new HomeCardItem(1, "Jhon_Doe3", R.drawable.person1, R.drawable.place1, "China", "Jhon_Doe3", "Exploring the Lake!", "20/11/2023"));
+        homeCardItems.add(new HomeCardItem(2, "Clarkk_34", R.drawable.person2, R.drawable.place2, "Korea", "Clarkk_34", "Enjoying the Grand Canyon", "22/11/2023"));
+        homeCardItems.add(new HomeCardItem(3, "Evans1", R.drawable.tyler1, R.drawable.place3, "South Korea", "Evans1", "Visiting Gyeongbokgung Palace", "24/11/2023"));
+        homeCardItems.add(new HomeCardItem(4, "Lorena", R.drawable.person9, R.drawable.place4, "Greece", "Lorena", "Observing the Sydney Opera House", "26/11/2023"));
+        homeCardItems.add(new HomeCardItem(5, "Coder_Juan", R.drawable.person7, R.drawable.place4jpg, "Germany", "Coder_Juan", "Touring the Berlin Wall", "28/11/2023"));
+        homeCardItems.add(new HomeCardItem(6, "Laura", R.drawable.person8, R.drawable.collie, "France", "Laura", "My beautiful Collie!", "30/11/2023"));
+        homeCardItems.add(new HomeCardItem(7, "Michael45", R.drawable.hacker, R.drawable.china, "China", "Michael45", "Exploring the Great Wall", "02/12/2023"));
+        homeCardItems.add(new HomeCardItem(8, "Josemrl17", R.drawable.me, R.drawable.kr, "Korea", "Jose", "Visiting the Tower of the capital!", "04/12/2023"));
 
     }
 
