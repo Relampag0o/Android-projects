@@ -62,15 +62,19 @@ public class SearchFragment extends Fragment {
         String[] names = {"Juan", "Pepe", "Alfonso", "Roberto", "Marcos ", "Andres ", "Jose Maria "};
         String[] surnames = {"Lopez", "Gonzalez", "Rodriguez", "Fernandez", "Garcia", "Martinez", "Sanchez", "Perez", "Romero", "Diaz", "Torres", "Ruiz", "Serrano", "Santos", "Hernandez", "Jimenez", "Vazquez", "Navarro", "Molina", "Castro"};
 
-        persons.add(new Person(201, "Dualipa", "DUA LIPA", 20000000, R.drawable.dualipa));
-        persons.add(new Person(202, "Tyler", "Tyler1", 10000000, R.drawable.tyler1));
+        persons.add(new Person(203, "JohnDoe", "John Doe", 15000000, R.drawable.person1));
+        persons.add(new Person(204, "EmmaW", "Emma Watson", 18000000, R.drawable.emmawatson));
+        persons.add(new Person(205, "ChrisEvans", "Chris Evans", 22000000, R.drawable.chrisevans));
+        persons.add(new Person(206, "ArianaG", "Ariana Grande", 30000000, R.drawable.arianagrande));
+        persons.add(new Person(207, "TomH", "Tom Hanks", 12000000, R.drawable.tomhanks));
+        persons.add(new Person(208, "JenniferL", "Jennifer Lopez", 25000000, R.drawable.jenniferlopez));
+        persons.add(new Person(209, "BradP", "Brad Pitt", 18000000, R.drawable.bradpitt));
+        persons.add(new Person(210, "SelenaG", "Selena Gomez", 28000000, R.drawable.selenagomez));
+        persons.add(new Person(211, "RobertD", "Robert Downey Jr.", 22000000, R.drawable.robertdowneyjr));
+        persons.add(new Person(212, "TaylorS", "Taylor Swift", 32000000, R.drawable.taylorswift));
 
-        Random r = new Random();
 
-        for (int i = 1; i < 10; i++) {
-            int picId = getResources().getIdentifier("person" + i, "drawable", getContext().getPackageName());
-            persons.add(new Person(i, names[r.nextInt(names.length - 1)], names[r.nextInt(names.length - 1)]+ "" + surnames[r.nextInt(surnames.length - 1)], r.nextInt(250000), picId));
-        }
+
 
     }
 }

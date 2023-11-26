@@ -21,14 +21,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Fav extends Fragment {
+public class FavFragment extends Fragment {
+
+    // the binding to avoid using view.getelementbyid.
     private FragmentFavBinding binding;
 
+    // lists to show cards.
     List<HomeCardItem> homeCardItems;
     List<SaveCardItem> favItems;
 
 
-    public Fav() {
+    public FavFragment() {
         // Required empty public constructor
     }
 
@@ -51,7 +54,7 @@ public class Fav extends Fragment {
 
         }
 
-        // code to show configure the recyclerview.
+        // code to show and configure the recyclerview.
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         homeCardItems = HomeFragment.homeCardItems;
         favItems = new ArrayList<>();
@@ -64,11 +67,12 @@ public class Fav extends Fragment {
 
     }
 
+    // we set the liked elements to another list.
     public void setFavItems() {
         for (HomeCardItem c : homeCardItems) {
             c.loadState(getContext());
             if (c.isLiked()) {
-                favItems.add(new SaveCardItem(c.getId(), c.getUsername(), c.getMainImageResource(),c.getUserImageResource()));
+                favItems.add(new SaveCardItem(c.getId(), c.getUsername(), c.getMainImageResource(), c.getUserImageResource()));
             }
         }
 

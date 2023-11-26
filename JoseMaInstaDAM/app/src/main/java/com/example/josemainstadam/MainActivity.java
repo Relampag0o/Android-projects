@@ -17,7 +17,7 @@ import android.util.TypedValue;
 import android.view.Menu;
 
 import com.example.josemainstadam.databinding.ActivityMainBinding;
-import com.example.josemainstadam.fav.Fav;
+import com.example.josemainstadam.fav.FavFragment;
 import com.example.josemainstadam.home.HomeCardItem;
 import com.example.josemainstadam.news.NewFragment;
 import com.example.josemainstadam.search.SearchFragment;
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                 title = "             News";
             }
             else if (idItem == R.id.action_messages) {
-                f = new Fav();
+                f = new FavFragment();
                 title = "           Your likes";
             }
 
