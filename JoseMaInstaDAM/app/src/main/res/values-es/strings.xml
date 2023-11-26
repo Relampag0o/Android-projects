@@ -27,12 +27,5 @@
     <string name="username3">Nombre de usuario</string>
     <string name="full_name">Nombre completo</string>
     <string name="amountfollowers">0 seguidores</string>
-    <string-array name="news_type">
-        <item>Ciencia</item>
-        <item>Deportes</item>
-        <item>Tecnología</item>
-        <item>Salud</item>
-        <item>Finanzas</item>
-        <item>Viajes</item>
-    </string-array>
+
 </resources>

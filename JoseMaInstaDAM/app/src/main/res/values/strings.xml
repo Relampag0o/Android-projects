@@ -12,8 +12,8 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="like">Like</string>
-    <string name="select_your_preferences">Select your preferences</string>
-    <string name="save_preferences">Save Preferences</string>
+    <string name="select_your_preferences" translatable="false">Select your preferences</string>
+    <string name="save_preferences" translatable="false">Save Preferences</string>
     <string name="author_s_name">Author\'s Name</string>
     <string name="username">Username</string>
     <string name="location">Location</string>

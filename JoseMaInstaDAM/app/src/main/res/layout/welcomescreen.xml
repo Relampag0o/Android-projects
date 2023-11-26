@@ -7,18 +7,18 @@
         android:id="@+id/textWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="InstaDam"
-        android:textSize="48sp"
-        android:textColor="@android:color/white"
         android:layout_centerInParent="true"
-        android:fontFamily="@font/instadamfont" />
+        android:fontFamily="@font/instadamfont"
+        android:text="InstaDam"
+        android:textColor="@android:color/white"
+        android:textSize="48sp" />
 
     <TextView
         android:id="@+id/textBy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/by_jose_maria"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textColor="@android:color/white"
         android:layout_below="@id/textWelcome"
         android:layout_centerHorizontal="true"

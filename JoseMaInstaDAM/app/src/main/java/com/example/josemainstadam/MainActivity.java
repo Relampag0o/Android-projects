@@ -1,5 +1,7 @@
 package com.example.josemainstadam;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -8,6 +10,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.AbsoluteSizeSpan;
@@ -54,10 +57,18 @@ public class MainActivity extends AppCompatActivity {
 
     Fragment f;
 
+    // i need to make this variable static, so the welcome fragment can evaluate the status false and doesnt iterate again.
+    private static boolean executed = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // this is the application code after creating the proyect with the bar.
         super.onCreate(savedInstanceState);
+
+        // need this method to change the activities.
+        loadMainActivity();
+
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarMain.toolbar);
@@ -122,16 +133,13 @@ public class MainActivity extends AppCompatActivity {
             if (idItem == R.id.action_home) {
                 f = new HomeFragment();
                 title = "          InstaDAM";
-            }
-            else if (idItem == R.id.action_search) {
+            } else if (idItem == R.id.action_search) {
                 f = new SearchFragment();
                 title = "         Search friends";
-            }
-            else if (idItem == R.id.action_notifications) {
+            } else if (idItem == R.id.action_notifications) {
                 f = new NewFragment();
                 title = "             News";
-            }
-            else if (idItem == R.id.action_messages) {
+            } else if (idItem == R.id.action_messages) {
                 f = new FavFragment();
                 title = "           Your likes";
             }
@@ -198,6 +206,15 @@ public class MainActivity extends AppCompatActivity {
             return bitmap;
         } else {
             throw new IllegalArgumentException("unsupported drawable type");
+        }
+    }
+
+    private void loadMainActivity() {
+        if (!executed) {
+            Intent welcomeIntent = new Intent(this, Welcome.class);
+            startActivity(welcomeIntent);
+            finish();
+            executed = true;
         }
     }
 }
