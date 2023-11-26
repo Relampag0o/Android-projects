@@ -1,7 +1,6 @@
 package com.example.josemainstadam;
 
 
-import java.util.Random;
 
 public class Person {
     private int id;

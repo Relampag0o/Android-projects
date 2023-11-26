@@ -52,13 +52,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageButton
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/likeButton"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/like"
-                android:src="@android:color/transparent" />
+                android:src="@android:color/transparent"
+                app:lottie_rawRes="@raw/defheart"/>
 
             <ImageButton
                 android:id="@+id/commentButton"

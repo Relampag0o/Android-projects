@@ -61,7 +61,7 @@ public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardAdapter.ViewHo
                 notifyItemRemoved(holder.getAdapterPosition());
 
                 // Configura y reproduce una animación
-                holder.deleteButton.setAnimation(R.raw.graybookmark);
+                holder.deleteButton.setAnimation(R.raw.defheart);
                 holder.deleteButton.playAnimation();
             }
         });
@@ -86,9 +86,7 @@ public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardAdapter.ViewHo
             image = itemView.findViewById(R.id.image);
             profileimg = itemView.findViewById(R.id.profileimg);
             deleteButton = itemView.findViewById(R.id.deleteButton);
-
-            // Configura y reproduce una animación
-            deleteButton.setAnimation(R.raw.graybookmark);
+            deleteButton.setAnimation(R.raw.defheart);
             deleteButton.playAnimation();
         }
     }

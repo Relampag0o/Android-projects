@@ -1,5 +1,7 @@
 package com.example.josemainstadam;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
@@ -46,18 +48,20 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.userImage.setImageResource(cardItem.getUserImageResource());
         holder.mainImage.setImageResource(cardItem.getMainImageResource());
         holder.likes.setText(cardItem.getLikes() + " Likes");
-        int d = R.drawable.smallheart;
 
-        // Set initial heart image
-        if (cardItem.isLiked()) {
-            holder.likeButton.setImageResource(R.drawable.smallheart);
-        } else {
-            holder.likeButton.setImageResource(R.drawable.whiteheart);
-        }
 
         // LIKE CONFIGURATION:
         holder.likeButton.setClickable(true);
         holder.likeButton.setFocusable(true);
+
+        // Set initial Lottie animation
+        if (cardItem.isLiked()) {
+            holder.likeButton.setAnimation(R.raw.defheart);
+            holder.likeButton.playAnimation();
+        } else {
+            holder.likeButton.setAnimation(R.raw.graylike);
+            holder.likeButton.playAnimation();
+        }
 
         holder.likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,19 +70,20 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
                     // Si el elemento ya tiene "me gusta", lo quitamos
                     cardItem.setLikes(cardItem.getLikes() - 1);
                     cardItem.setLiked(false);
-                    holder.likeButton.setImageResource(R.drawable.whiteheart);
+                    holder.likeButton.setAnimation(R.raw.graylike);
+                    holder.likeButton.playAnimation();
                 } else {
                     // Si el elemento no tiene "me gusta", lo añadimos
                     cardItem.setLikes(cardItem.getLikes() + 1);
                     cardItem.setLiked(true);
-                    holder.likeButton.setImageResource(R.drawable.smallheart);
+                    holder.likeButton.setAnimation(R.raw.defheart);
+                    holder.likeButton.playAnimation();
                 }
                 cardItem.saveState(context);
                 notifyItemChanged(holder.getAdapterPosition());
             }
         });
     }
-
 
     @Override
     public int getItemCount() {
@@ -89,7 +94,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         ImageView userImage;
         TextView username;
         ImageView mainImage;
-        ImageButton likeButton;
+        LottieAnimationView likeButton;
 
         ImageView profileimg;
         TextView likes;
