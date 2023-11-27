@@ -22,15 +22,15 @@
 
         <EditText
             android:id="@+id/editText"
-            android:layout_width="0dp"
-            android:height="50dp"
+            android:layout_width="313dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="     find or write an url"
             android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:height="50dp"
             android:background="@drawable/rounded_edittext"
+            android:drawableLeft="@drawable/google"
             android:drawableRight="@drawable/mic"
-            android:drawableLeft="@drawable/google"/>
+            android:hint="     find or write an url" />
 
     </LinearLayout>
 
