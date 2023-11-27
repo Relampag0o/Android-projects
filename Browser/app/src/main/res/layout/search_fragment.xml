@@ -22,12 +22,15 @@
 
         <EditText
             android:id="@+id/editText"
-            android:layout_width="220dp"
+            android:layout_width="0dp"
+            android:height="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Find or write an URL "
+            android:hint="     find or write an url"
             android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_edittext"/>
+            android:background="@drawable/rounded_edittext"
+            android:drawableRight="@drawable/mic"
+            android:drawableLeft="@drawable/google"/>
 
     </LinearLayout>
 
@@ -35,7 +38,7 @@
         android:id="@+id/bookmarks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Marcadores"
+        android:text="Bookmarks"
         android:textSize="18sp"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"/>
