@@ -21,7 +21,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/navigationField"
             android:layout_width="313dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -30,7 +30,11 @@
             android:background="@drawable/rounded_edittext"
             android:drawableLeft="@drawable/google"
             android:drawableRight="@drawable/mic"
-            android:hint="     find or write an url" />
+            android:hint="     find or write an url"
+            android:imeOptions="actionGo"
+            android:singleLine="true"
+
+            />
 
     </LinearLayout>
 
