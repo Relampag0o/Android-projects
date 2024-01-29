@@ -6,8 +6,7 @@ import android.os.Handler;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.josemainstadam.R;
-import com.example.josemainstadam.layout.LoginActivity;
+import com.example.josemainstadam.login.LoginActivity;
 
 public class Welcome extends AppCompatActivity {
 
