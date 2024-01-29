@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.josemainstadam.R;
+import com.example.josemainstadam.layout.LoginActivity;
 
 public class Welcome extends AppCompatActivity {
 
@@ -19,8 +20,8 @@ public class Welcome extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent mainActivityIntent = new Intent(Welcome.this, MainActivity.class);
-                startActivity(mainActivityIntent);
+                Intent loginIntent = new Intent(Welcome.this, LoginActivity.class);
+                startActivity(loginIntent);
             }
         }, 2000);
     }
