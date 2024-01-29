@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // need this method to change the activities.
-        loadMainActivity();
+        //loadMainActivity();
 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -190,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //METHOD TO LOAD THE WELCOME ACTIVITY.
+    /*
     private void loadMainActivity() {
         if (!executed) {
             Intent welcomeIntent = new Intent(this, Welcome.class);
@@ -200,10 +201,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+     */
+
 
     /**
      * METHOD TO SETUP NECESSARY THINGS FOR THE TOOLBAR:
      * THE ROUNDED PROFILE PIC AND THE TITLE BASED ON THE FRAGMENT.
+     *
      * @param text THIS TEXT IS THE TITTLE THAT WE WANT TO SET FROM THE FRAGMENT.
      */
     private void setupToolbar(String text) {
