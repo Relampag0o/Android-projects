@@ -12,7 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.josemainstadam.MainActivity;
 import com.example.josemainstadam.R;
+import com.example.josemainstadam.db.DbHelper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,6 +22,8 @@ public class LoginActivity extends AppCompatActivity {
     Button loginButton;
     EditText userText;
     EditText pwText;
+
+    DbHelper dbHelper;
 
 
     public LoginActivity() {
@@ -37,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         pwText = findViewById(R.id.passwordText);
 
         // method to comunicate with mainActivity and switch the activity.
+        // in case we want to register before login.
         notRegisteredTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,10 +51,25 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
+        // method to handle the login button. Validations will be applied.
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String email = userText.getText().toString();
+                String password = pwText.getText().toString();
+
+                if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    dbHelper = new DbHelper(LoginActivity.this);
+                    if (!dbHelper.checkUser(email)) {
+                        userText.setError("The email is not registered.");
+                        return;
+                    }
+
+                    Intent mainActivity = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(mainActivity);
+                } else {
+                    userText.setError("The address is not valid.");
+                }
 
             }
         });
