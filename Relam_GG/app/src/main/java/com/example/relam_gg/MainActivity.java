@@ -22,13 +22,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RiotApiClient riotApiClient = new RiotApiClient();
+        String baseUrl = "https://europe.api.riotgames.com/";
+        String gameName = "Pepe";
+        String tagLine = "euw";
 
-        Call<List<Account>> call = riotApiClient.getRiotApiService().getAccountInfo("tuGameName", "tuTagLine");
+        Call<List<Account>> call = riotApiClient.getRiotApiService().getAccountInfo(gameName, tagLine, baseUrl);
+
+        Log.d("API Request", call.request().url().toString());
+
         call.enqueue(new Callback<List<Account>>() {
             @Override
             public void onResponse(Call<List<Account>> call, Response<List<Account>> response) {
                 if (response.isSuccessful()) {
                     List<Account> accounts = response.body();
+                    System.out.println(accounts.size());
                     for (Account account : accounts) {
                             Log.d("API Response", account.toString());
                     }
