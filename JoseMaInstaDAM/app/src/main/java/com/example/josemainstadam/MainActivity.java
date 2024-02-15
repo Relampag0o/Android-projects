@@ -28,6 +28,8 @@ import com.example.josemainstadam.home.HomeFragment;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
@@ -62,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
     // i need to make this variable static, so the welcome fragment can evaluate the status false and doesnt iterate again.
     private static boolean executed = false;
 
+    // FIREBASE TEST
+    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // this is the application code after creating the proyect with the bar.
@@ -69,6 +75,16 @@ public class MainActivity extends AppCompatActivity {
 
         // need this method to change the activities.
         //loadMainActivity();
+
+        // FIREBASE TEST
+        DocumentReference docRef = firestore.collection("posts").document("post1");
+        docRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Firebase", "DocumentSnapshot data: " + task.getResult().getData());
+            } else {
+                Log.d("Firebase", "get failed with ", task.getException());
+            }
+        });
 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());

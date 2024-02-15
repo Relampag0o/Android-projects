@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "370697733480",
+    "project_id": "instadam-3caf9",
+    "storage_bucket": "instadam-3caf9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370697733480:android:ffe681171cce79d25242dd",
+        "android_client_info": {
+          "package_name": "com.example.josemainstadam.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKPYfUOXqx7kiNefwr04vqoLzSOQOc8rk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

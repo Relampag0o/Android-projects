@@ -1,5 +1,8 @@
 plugins {
     id("com.android.application")
+    //id("com.google.gms.google-services")
+    id("com.google.gms.google-services") version "4.4.1" apply false
+
 }
 
 android {
@@ -49,6 +52,7 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.airbnb.android:lottie:6.2.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
-
+    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
+    implementation("com.google.firebase:firebase-firestore")
 
 }
