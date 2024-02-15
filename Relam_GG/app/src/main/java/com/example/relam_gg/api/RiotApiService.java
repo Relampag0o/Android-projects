@@ -21,7 +21,7 @@ public interface RiotApiService {
 
     // ADD NEW METHODS...
     @GET("riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}")
-    @Headers({"X-Riot-Token: RGAPI-494d35f5-482b-4891-984c-c49b07708f44"})
+    @Headers({"X-Riot-Token: INSERT TOKEN"})
     Call<Account> getAccountIno(
             @Path("gameName") String gameName,
             @Path("tagLine") String tagLine
