@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RiotApiClient {
-    private static final String BASE_URL = "https://api.riotgames.com/";
+    private static final String BASE_URL = "https://europe.api.riotgames.com/";
 
     private final RiotApiService riotApiService;
 

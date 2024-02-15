@@ -26,19 +26,17 @@ public class MainActivity extends AppCompatActivity {
         String gameName = "Pepe";
         String tagLine = "euw";
 
-        Call<List<Account>> call = riotApiClient.getRiotApiService().getAccountInfo(gameName, tagLine, baseUrl);
+        Call<Account> call = riotApiClient.getRiotApiService().getAccountInfo(gameName, tagLine);
 
         Log.d("API Request", call.request().url().toString());
 
-        call.enqueue(new Callback<List<Account>>() {
+        call.enqueue(new Callback<Account>() {
             @Override
-            public void onResponse(Call<List<Account>> call, Response<List<Account>> response) {
+            public void onResponse(Call<Account> call, Response<Account> response) {
                 if (response.isSuccessful()) {
-                    List<Account> accounts = response.body();
-                    System.out.println(accounts.size());
-                    for (Account account : accounts) {
-                            Log.d("API Response", account.toString());
-                    }
+                    Account accounts = response.body();
+                    System.out.println(accounts);
+
                 } else {
 
                     try {
@@ -51,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Account>> call, Throwable t) {
+            public void onFailure(Call<Account> call, Throwable t) {
                 Log.e("API Error", "Fallo en la llamada", t);
             }
         });

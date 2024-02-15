@@ -12,10 +12,19 @@ import retrofit2.http.Url;
 
 public interface RiotApiService {
     @GET("riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}")
-    @Headers("INSERT TOKEN HERE")
-    Call<List<Account>> getAccountInfo(
+    @Headers({"X-Riot-Token: INSERT TOKEN"})
+    Call<Account> getAccountInfo(
             @Path("gameName") String gameName,
-            @Path("tagLine") String tagLine,
-            @Url String baseUrl
+            @Path("tagLine") String tagLine
+
+    );
+
+    // ADD NEW METHODS...
+    @GET("riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}")
+    @Headers({"X-Riot-Token: RGAPI-494d35f5-482b-4891-984c-c49b07708f44"})
+    Call<Account> getAccountIno(
+            @Path("gameName") String gameName,
+            @Path("tagLine") String tagLine
+
     );
 }
