@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
-    //id("com.google.gms.google-services")
-    id("com.google.gms.google-services") version "4.4.1" apply false
+    id("com.google.gms.google-services")
+
 
 }
 
@@ -54,5 +54,7 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
     implementation("com.google.firebase:firebase-firestore")
+
+
 
 }

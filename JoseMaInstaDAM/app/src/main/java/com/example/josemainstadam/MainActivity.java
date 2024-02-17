@@ -25,13 +25,19 @@ import com.example.josemainstadam.home.HomeCardItem;
 import com.example.josemainstadam.news.NewFragment;
 import com.example.josemainstadam.search.SearchFragment;
 import com.example.josemainstadam.home.HomeFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
@@ -62,10 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
     Fragment f;
 
-    // i need to make this variable static, so the welcome fragment can evaluate the status false and doesnt iterate again.
-    private static boolean executed = false;
-
-    // FIREBASE TEST
     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
 
@@ -73,21 +75,35 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // this is the application code after creating the proyect with the bar.
         super.onCreate(savedInstanceState);
+        Log.d("Firebase", "MainActivity onCreate");
 
-        // need this method to change the activities.
-        //loadMainActivity();
 
-        // FIREBASE TEST
-
-        DocumentReference docRef = firestore.collection("posts").document("post1");
-        docRef.get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                Log.d("Firebase", "DocumentSnapshot data: " + task.getResult().getData());
-            } else {
-                Log.d("Firebase", "get failed with ", task.getException());
+        DocumentReference docRef = firestore.collection("posts").document("Photo1");
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d("Firebase", "DocumentSnapshot data: " + document.getData());
+                    } else {
+                        Log.d("Firebase", "No such document");
+                    }
+                } else {
+                    Log.d("Firebase", "get failed with ", task.getException());
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                if (e instanceof FirebaseFirestoreException && ((FirebaseFirestoreException) e).getCode() == FirebaseFirestoreException.Code.UNAVAILABLE) {
+                    Log.d("Firebase", "Error: Firestore service is currently unavailable.", e);
+                    // Show a message to the user about the error
+                } else {
+                    Log.d("Firebase", "Error getting document", e);
+                }
             }
         });
-
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

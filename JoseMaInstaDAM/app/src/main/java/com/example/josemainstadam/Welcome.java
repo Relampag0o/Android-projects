@@ -7,13 +7,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.josemainstadam.login.LoginActivity;
+import com.google.firebase.FirebaseApp;
 
 public class Welcome extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcomescreen);
+
 
         // WE USE THE HANDLER TO MAKE THE APP SLEEP FOR SOME SECONDS.
         new Handler().postDelayed(new Runnable() {
