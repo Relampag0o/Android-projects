@@ -8,11 +8,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.josemainstadam.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +26,7 @@ import java.util.Random;
 
 public class SearchFragment extends Fragment {
     private List<Person> persons;
+
 
 
     public SearchFragment() {
@@ -48,7 +55,27 @@ public class SearchFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
 
         persons = new ArrayList<>();
-        createPersons();
+        //createPersons();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("persons").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (DocumentSnapshot document : task.getResult()) {
+                        persons.add(new Person(document));
+                    }
+
+                    PersonAdapter personAdapter = new PersonAdapter(requireContext(), persons);
+
+                    recyclerView.setAdapter(personAdapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+                } else {
+                    Log.d("Firestore", "get failed with ", task.getException());
+                }
+            }
+        });
+
+        // provisional code to test firebase
 
         PersonAdapter personAdapter = new PersonAdapter(requireContext(), persons);
 
@@ -57,6 +84,7 @@ public class SearchFragment extends Fragment {
     }
 
 
+    /*
     public void createPersons() {
 
         String[] names = {"Juan", "Pepe", "Alfonso", "Roberto", "Marcos ", "Andres ", "Jose Maria "};
@@ -77,4 +105,6 @@ public class SearchFragment extends Fragment {
 
 
     }
+
+     */
 }

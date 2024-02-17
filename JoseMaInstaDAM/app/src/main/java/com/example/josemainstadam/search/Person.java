@@ -1,6 +1,7 @@
 package com.example.josemainstadam.search;
 
 
+import com.google.firebase.firestore.DocumentSnapshot;
 
 public class Person {
     private int id;
@@ -10,12 +11,12 @@ public class Person {
     private int imageResource;
 
 
-    public Person(int id, String username, String fullName, int followerCount, int imageResource) {
-        this.id = id;
-        this.username = username;
-        this.fullName = fullName;
-        this.followerCount = followerCount;
-        this.imageResource = imageResource;
+    public Person(DocumentSnapshot document) {
+        this.id = document.getLong("id").intValue();
+        this.username = document.getString("username");
+        this.fullName = document.getString("fullName");
+        this.followerCount = document.getLong("followerCount").intValue();
+        // need to add a way to get the picture
     }
 
     public int getId() {
