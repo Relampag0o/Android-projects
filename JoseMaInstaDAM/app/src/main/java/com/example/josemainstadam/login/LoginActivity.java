@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.josemainstadam.MainActivity;
 import com.example.josemainstadam.R;
@@ -60,19 +62,20 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     dbHelper = new DbHelper(LoginActivity.this);
-                    if (!dbHelper.checkUser(email)) {
-                        userText.setError("The email is not registered.");
+                    Log.d("LOGIN", "onClick: " + email + " " + password);
+                    if (!dbHelper.checkUser(email) || !dbHelper.checkPasswd(email, password)) {
+                        Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
                     Intent mainActivity = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(mainActivity);
                 } else {
-                    userText.setError("The address is not valid.");
+                    Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
                 }
-
-            }
+    }
         });
+
 
 
     }

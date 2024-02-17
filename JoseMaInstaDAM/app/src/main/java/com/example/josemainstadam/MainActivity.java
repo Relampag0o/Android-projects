@@ -28,6 +28,7 @@ import com.example.josemainstadam.home.HomeFragment;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         //loadMainActivity();
 
         // FIREBASE TEST
+
         DocumentReference docRef = firestore.collection("posts").document("post1");
         docRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {

@@ -25,11 +25,12 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insertBBDD(String name, String pasw) {
+    public void insertBBDD(String name, String email, String pasw) {
 
         // Creamos mapa de valores con los nombres de las tablas
         ContentValues values = new ContentValues();
         values.put(StructureDB.COLUMN_USERNAME, name);
+        values.put(StructureDB.COLUMN_EMAIL, email);
         values.put(StructureDB.COLUMN_PASSWORD, pasw);
 
         // Insertar nueva fila indicando nombre de la tabla
@@ -39,17 +40,13 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
-    /**
-     * Comprueba usuario si existe en BBDD por su userName
-     * @param username
-     * @return
-     */
-    public boolean checkUser(String username) {
+
+    public boolean checkUser(String email) {
 
         Cursor cursor = this.getReadableDatabase().rawQuery(
                 "SELECT * FROM " + StructureDB.TABLE_USERS +
-                        " WHERE " + StructureDB.COLUMN_USERNAME + "=? " ,
-                new String[]{ username });
+                        " WHERE " + StructureDB.COLUMN_EMAIL + "=? ",
+                new String[]{email});
 
         boolean exists = cursor.getCount() > 0;
         cursor.close();
@@ -58,12 +55,12 @@ public class DbHelper extends SQLiteOpenHelper {
         return exists;
     }
 
-    public boolean checkPasswd(String username, String passwd) {
+    public boolean checkPasswd(String email, String passwd) {
 
         Cursor cursor = this.getReadableDatabase().rawQuery(
                 "SELECT * FROM " + StructureDB.TABLE_USERS +
-                        " WHERE " + StructureDB.COLUMN_USERNAME + "=? AND " + StructureDB.COLUMN_PASSWORD + "=?",
-                new String[]{ username, passwd });
+                        " WHERE " + StructureDB.COLUMN_EMAIL + "=? AND " + StructureDB.COLUMN_PASSWORD + "=?",
+                new String[]{email, passwd});
 
         boolean exists = cursor.getCount() > 0;
         cursor.close();

@@ -62,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
                 // if everything is ok, we can create the user.
-                dbHelper.insertBBDD(nameStr, pwStr);
+                dbHelper.insertBBDD(nameStr, emailStr, pwStr);
                 Toast.makeText(this, "User created successfully!", Toast.LENGTH_SHORT).show();
                 finish();
             }
