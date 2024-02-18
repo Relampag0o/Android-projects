@@ -7,16 +7,18 @@ public class Person {
     private int id;
     private String username;
     private String fullName;
-    private int followerCount;
-    private int imageResource;
+    private String followerCount;
+    private String imageResource;
 
 
     public Person(DocumentSnapshot document) {
         this.id = document.getLong("id").intValue();
         this.username = document.getString("username");
         this.fullName = document.getString("fullName");
-        this.followerCount = document.getLong("followerCount").intValue();
-        // need to add a way to get the picture
+        this.followerCount = document.getString("followerCount");
+        this.imageResource = document.getString("imageResource");
+
+
     }
 
     public int getId() {
@@ -31,11 +33,11 @@ public class Person {
         return fullName;
     }
 
-    public int getFollowerCount() {
+    public String getFollowerCount() {
         return followerCount;
     }
 
-    public int getImageResource() {
+    public String getImageResource() {
         return imageResource;
     }
 }

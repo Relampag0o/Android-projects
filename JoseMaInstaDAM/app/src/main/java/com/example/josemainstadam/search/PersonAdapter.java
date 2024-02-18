@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.josemainstadam.R;
 
 import java.util.List;
@@ -61,10 +62,13 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
         }
 
         public void bindData(Person person) {
-            personImage.setImageResource(person.getImageResource());
+
+            Glide.with(itemView.getContext())
+                    .load(person.getImageResource())
+                    .into(personImage);
             username.setText(person.getUsername());
             fullName.setText(person.getFullName());
-            followerCount.setText(String.valueOf(person.getFollowerCount()) + " followers");
+            followerCount.setText(person.getFollowerCount());
         }
     }
 }
