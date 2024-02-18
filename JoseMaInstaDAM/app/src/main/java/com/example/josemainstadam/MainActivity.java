@@ -18,6 +18,7 @@ import android.text.style.TypefaceSpan;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.josemainstadam.databinding.ActivityMainBinding;
 import com.example.josemainstadam.fav.FavFragment;
@@ -40,6 +41,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -52,7 +54,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -69,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
     Fragment f;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // this is the application code after creating the proyect with the bar.
@@ -80,7 +81,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarMain.toolbar);
         DrawerLayout drawer = binding.drawerLayout;
+        // code for the nav
         NavigationView navigationView = binding.navView;
+        navigationView.setNavigationItemSelectedListener(this);
+
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
@@ -195,7 +200,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     /**
      * METHOD TO SETUP NECESSARY THINGS FOR THE TOOLBAR:
      * THE ROUNDED PROFILE PIC AND THE TITLE BASED ON THE FRAGMENT.
@@ -219,5 +223,26 @@ public class MainActivity extends AppCompatActivity {
         int fontSizeInPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 28, getResources().getDisplayMetrics());
         spannableString.setSpan(new AbsoluteSizeSpan(fontSizeInPixels), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         toolbar.setTitle(spannableString);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.nav_profile) {
+            Intent profileIntent = new Intent(MainActivity.this, ProfileIntent.class);
+            startActivity(profileIntent);
+
+        } else if (id == R.id.nav_settings) {
+            Log.d("Navigation", "Settings clicked");
+        } else if (id == R.id.nav_notifications) {
+            Log.d("Navigation", "notifications clicked");
+
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

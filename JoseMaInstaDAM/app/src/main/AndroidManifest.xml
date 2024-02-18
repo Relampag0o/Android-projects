@@ -17,10 +17,14 @@
 
         <activity
             android:name=".login.RegisterActivity"
-            android:exported="false" />
+            android:exported="false"
+
+
+            />
         <activity
             android:name=".login.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".Welcome"
             android:exported="true"
@@ -32,6 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ProfileIntent" />
 
         <activity
             android:name=".MainActivity"
