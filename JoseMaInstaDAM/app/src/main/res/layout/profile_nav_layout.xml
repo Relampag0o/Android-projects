@@ -41,7 +41,7 @@
                     android:src="@drawable/me"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="150dp"
-                    android:layout_marginRight="150dp"/>
+                   />
 
                 <ImageButton
                     android:id="@+id/btnBack"
@@ -67,7 +67,82 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="50dp">
+            android:paddingTop="5dp"
+            android:layout_marginRight="20dp"
+            >
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:text="Jose"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="\@josemrl17"
+                android:textSize="16sp"
+                android:textColor="@color/beautyblue"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="-10dp"/>
+
+            <TextView
+                android:id="@+id/tvBirthdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:text="Birthdate: 10/10/1997"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginRight="-10dp"/>
+
+            <TextView
+                android:id="@+id/tvJoined"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Joined: February 2021"
+                android:textSize="14sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="-10dp"
+                android:textColor="@color/white"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="110dp">
+
+                <TextView
+                    android:id="@+id/tvFollowing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="93 Following"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/tvFollowers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="224 Followers"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
 
             <!-- TextViews for description, followers, etc. -->
 
