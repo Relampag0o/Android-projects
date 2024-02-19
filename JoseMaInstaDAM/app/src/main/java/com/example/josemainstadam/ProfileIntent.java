@@ -1,22 +1,28 @@
 package com.example.josemainstadam;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 
-import androidx.annotation.Nullable;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.josemainstadam.login.LoginActivity;
 
 public class ProfileIntent extends AppCompatActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_nav_layout);
 
-        Log.d("ProfileIntent", "ProfileIntent onCreate");
+        ImageButton backButton = findViewById(R.id.btnBack);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
