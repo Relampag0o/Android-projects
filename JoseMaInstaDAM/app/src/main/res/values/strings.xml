@@ -34,6 +34,10 @@
     <string name="profile">Profile</string>
     <string name="your_email">your email</string>
     <string name="welcome_back">Welcome back!</string>
+    <string name="not_registered_yet">Not registered yet?</string>
+    <string name="your_password">your password</string>
+    <string name="login">LOGIN</string>
+    <string name="keep_me_signed_in">keep me signed in</string>
     <string-array name="news_type">
         <item>SCIENCE</item>
         <item>SPORTS</item>

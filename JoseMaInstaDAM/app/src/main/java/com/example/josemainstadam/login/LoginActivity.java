@@ -2,7 +2,9 @@ package com.example.josemainstadam.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -10,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +30,11 @@ public class LoginActivity extends AppCompatActivity {
 
     DbHelper dbHelper;
 
+    CheckBox keepMeSignedIn;
+
+    private String email;
+    private String password;
+
 
     public LoginActivity() {
         // required empty constructor!
@@ -41,6 +49,9 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
         userText = findViewById(R.id.userText);
         pwText = findViewById(R.id.passwordText);
+        keepMeSignedIn = findViewById(R.id.keepMeSignedIn);
+        recoverSharedPreferences();
+
 
         // method to comunicate with mainActivity and switch the activity.
         // in case we want to register before login.
@@ -68,16 +79,37 @@ public class LoginActivity extends AppCompatActivity {
                         return;
                     }
 
+                    // CODE TO KEEP THE USER LOGGED IN
+                    if (keepMeSignedIn.isChecked()) {
+                        SharedPreferences sharedPref = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("email", email);
+                        editor.putString("password", password);
+                        editor.apply();
+                    }
+
+
                     Intent mainActivity = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(mainActivity);
                 } else {
                     Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
                 }
-    }
+            }
         });
 
 
+    }
 
+
+    // METHOD TO RECOVER EMAIL AND PW FROM SHARED PREFERENCES
+    public void recoverSharedPreferences() {
+        SharedPreferences sharedPref = getSharedPreferences("LoginData", Context.MODE_PRIVATE);
+        String email = sharedPref.getString("email", "");
+        String password = sharedPref.getString("password", "");
+        if (!email.equals("") && !password.equals("")) {
+            userText.setText(email);
+            pwText.setText(password);
+        }
     }
 
 

@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     // WE USE THE BINDING AS A WAY OF RETRIEVING ELEMENTS INSTEAD USING VIEW.FINDELEMENTBYID..
     private ActivityMainBinding binding;
 
-    private List<HomeCardItem> homeCardItemList;
-
     SpannableString spannableString;
     Typeface typeface;
 
@@ -152,8 +150,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // METHOD TO CHANGE THE FRAGMENTS:
     private void loadFragment(Fragment fragment) {
-        Log.d("FragmentTag", "Loading fragment: " + fragment.getClass().getSimpleName());
-
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fragmentContainerView, fragment);
