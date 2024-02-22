@@ -75,6 +75,10 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
         ImageView photo;
 
         public ViewHolder(@NonNull View itemView) {
+
+
+
+
             super(itemView);
             newImage = itemView.findViewById(R.id.newImage);
             title = itemView.findViewById(R.id.tittle);
