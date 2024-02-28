@@ -56,19 +56,26 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    // VARIABLES FOR THE NAVIGATION:
     private AppBarConfiguration mAppBarConfiguration;
 
     // WE USE THE BINDING AS A WAY OF RETRIEVING ELEMENTS INSTEAD USING VIEW.FINDELEMENTBYID..
     private ActivityMainBinding binding;
 
+    // VARIABLES FOR THE TOOLBAR:
     SpannableString spannableString;
+
+    // TYPEFACE FOR THE FONT
     Typeface typeface;
 
+    // TOOLBAR
     Toolbar toolbar;
 
+    // FRAGMENT
     Fragment f;
 
 
+    // ONCREATE METHOD
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // this is the application code after creating the proyect with the bar.
@@ -137,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 title = "           Your likes";
             }
 
+            // IF THE FRAGMENT IS NOT NULL, WE LOAD IT AND SET THE TITLE.
             if (f != null) {
                 loadFragment(f);
                 setupToolbar(title);
@@ -221,6 +229,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setTitle(spannableString);
     }
 
+    // NAVIGATION METHODS:
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -233,10 +242,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_settings) {
             Log.d("Navigation", "Settings clicked");
         } else if (id == R.id.nav_notifications) {
-            Log.d("Navigation", "notifications clicked");
+            Log.d("Notifications", "notifications clicked");
 
         }
 
+        // CLOSE THE DRAWER
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
