@@ -12,6 +12,7 @@ import com.example.josemainstadam.R;
 import com.example.josemainstadam.db.DbHelper;
 
 public class RegisterActivity extends AppCompatActivity {
+    // variables
 
     ImageButton gBack;
     EditText name;
@@ -20,9 +21,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     DbHelper dbHelper;
 
+    // constructor
     public RegisterActivity() {
         // Required empty public constructor
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

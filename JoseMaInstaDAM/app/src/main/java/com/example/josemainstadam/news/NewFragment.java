@@ -20,11 +20,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewFragment extends Fragment {
+    // VARIABLES:
+    // list of new items:
     List<NewItem> newItems;
+
+    // list of prefered items:
     List<NewItem> preferedItems;
+    // spinner:
     Spinner sp;
+    // save button:
     Button saveButton;
 
+    // constructor:
     public NewFragment() {
         // Required empty public constructor
     }

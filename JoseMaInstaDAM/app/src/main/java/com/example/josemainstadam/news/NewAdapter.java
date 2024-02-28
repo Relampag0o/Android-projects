@@ -17,7 +17,9 @@ import com.example.josemainstadam.R;
 import java.util.List;
 
 public class NewAdapter extends RecyclerView.Adapter<NewViewHolder> {
+    // VARIABLES:
     private List<NewItem> cardItems;
+
 
     private Context context;
 

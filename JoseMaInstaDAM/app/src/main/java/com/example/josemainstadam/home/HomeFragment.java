@@ -30,7 +30,6 @@ public class HomeFragment extends Fragment {
 
     // this is the method that is going to be called when the fragment is created.
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         homeCardItems = new ArrayList<>();
