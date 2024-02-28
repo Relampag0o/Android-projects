@@ -27,8 +27,8 @@
     <string name="username3">Username</string>
     <string name="full_name">Full Name</string>
     <string name="amountfollowers">0 followers</string>
-    <string name="instadam">InstaDam</string>
-    <string name="by_jose_maria">by Jose Maria</string>
+    <string name="instadam" translatable="false">InstaDam</string>
+    <string name="by_jose_maria" translatable="false">by Jose Maria</string>
     <string name="notifications_settings">Notifications settings</string>
     <string name="settings">Settings</string>
     <string name="profile">Profile</string>

@@ -27,5 +27,18 @@
     <string name="username3">Nombre de usuario</string>
     <string name="full_name">Nombre completo</string>
     <string name="amountfollowers">0 seguidores</string>
+    <string name="notifications_settings">Ajustes de notificación</string>
+    <string name="settings">Ajustes</string>
+    <string name="profile">Perfil</string>
+    <string name="your_email">Tú email</string>
+    <string name="welcome_back">¡Bienvenido de nuevo!</string>
+    <string name="not_registered_yet">¿Aún no estás registrado?</string>
+    <string name="your_password">Tu contraseña</string>
+    <string name="login">INICIAR SESIÓN</string>
+    <string name="keep_me_signed_in">Mantenerme conectado</string>
+
+
+
+
 
 </resources>

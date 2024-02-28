@@ -56,11 +56,6 @@ public class CardViewHolder extends RecyclerView.ViewHolder {
         description.setText(homeCardItem.getDescription());
         date.setText(homeCardItem.getDate());
 
-        // LIKE CONFIGURATION:
-
-        likeButton.setClickable(true);
-        likeButton.setFocusable(true);
-
         // Set initial Lottie animation
         if (homeCardItem.isLiked()) {
             likeButton.setAnimation(R.raw.defheart);
@@ -87,7 +82,8 @@ public class CardViewHolder extends RecyclerView.ViewHolder {
                     likeButton.playAnimation();
                 }
                 homeCardItem.saveState(context);
-                // notifyItemChanged(getAdapterPosition()); // This line may need to be handled differently
+                // this line updates the textview again!
+                likes.setText(homeCardItem.getLikes() + " Likes");
             }
         });
     }
