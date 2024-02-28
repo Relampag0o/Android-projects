@@ -18,6 +18,7 @@ public class HomeCardItem {
     private String description;
     private String date;
 
+    // Constructor
     public HomeCardItem(int id, String username, int userImageResource, int mainImageResource, String location, String uploader, String description, String date) {
         Random r = new Random();
         this.id = id;
@@ -119,6 +120,8 @@ public class HomeCardItem {
         editor.putBoolean("like_" + this.id, this.liked);
         editor.apply();
     }
+
+    // methods to load like status from the memory.
 
     public void loadState(Context context) {
         SharedPreferences sharedPref = context.getSharedPreferences("CardItem", Context.MODE_PRIVATE);
