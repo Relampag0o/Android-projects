@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_slideshow" />
     <activity
         android:id="@+id/nav_profile"
-        android:name="com.example.josemainstadam.ProfileIntent"
+        android:name="com.example.josemainstadam.others.ProfileIntent"
         android:label="Profile"
         app:destination="@layout/profile_nav_layout" />
 

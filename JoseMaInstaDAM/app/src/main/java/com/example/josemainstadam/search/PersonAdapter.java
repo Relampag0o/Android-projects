@@ -16,8 +16,13 @@ import com.example.josemainstadam.R;
 import java.util.List;
 
 public class PersonAdapter extends RecyclerView.Adapter<PersonViewHolder> {
+    // This class is the adapter for the recycler view.
+    // It is responsible for creating the view holder and binding the data to the view holder.
     private Context context;
+    // This is the context of the activity.
     private List<Person> persons;
+
+    // This is the list of persons that will be displayed in the recycler view.
 
     public PersonAdapter(Context context, List<Person> persons) {
         this.context = context;

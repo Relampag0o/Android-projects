@@ -31,6 +31,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class SearchFragment extends Fragment {
+    // List of persons that will be displayed in the recycler view.
     private List<Person> persons;
 
 
@@ -53,6 +54,7 @@ public class SearchFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_search, container, false);
     }
 
+    // This method is responsible for binding the data to the view holder.
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -80,6 +82,7 @@ public class SearchFragment extends Fragment {
             }
         });
 
+        // Setting the adapter and layout manager for the recycler view.
 
         PersonAdapter personAdapter = new PersonAdapter(requireContext(), persons);
 

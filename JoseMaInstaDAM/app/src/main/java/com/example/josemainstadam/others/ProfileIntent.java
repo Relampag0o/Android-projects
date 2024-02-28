@@ -1,4 +1,4 @@
-package com.example.josemainstadam;
+package com.example.josemainstadam.others;
 
 import android.os.Bundle;
 
@@ -8,6 +8,8 @@ import android.widget.ImageButton;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.josemainstadam.R;
 
 
 public class ProfileIntent extends AppCompatActivity {

@@ -8,16 +8,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.josemainstadam.MainActivity;
+import com.example.josemainstadam.others.MainActivity;
 import com.example.josemainstadam.R;
 import com.example.josemainstadam.db.DbHelper;
 

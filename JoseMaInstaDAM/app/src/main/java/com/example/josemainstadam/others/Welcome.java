@@ -1,4 +1,4 @@
-package com.example.josemainstadam;
+package com.example.josemainstadam.others;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.os.Handler;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.josemainstadam.R;
 import com.example.josemainstadam.login.LoginActivity;
-import com.google.firebase.FirebaseApp;
 
 public class Welcome extends AppCompatActivity {
 
