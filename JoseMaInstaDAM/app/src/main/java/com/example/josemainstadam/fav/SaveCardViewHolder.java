@@ -35,7 +35,7 @@ public class SaveCardViewHolder extends RecyclerView.ViewHolder {
         this.context = context;
     }
 
-    public void bind(SaveCardItem saveCardItem, List<HomeCardItem> homeHomeCardItems, List<SaveCardItem> saveCardItems) {
+    public void bind(SaveCardItem saveCardItem, List<HomeCardItem> homeHomeCardItems, List<SaveCardItem> saveCardItems,RecyclerView.Adapter adapter) {
         author.setText(saveCardItem.getAuthor());
         image.setImageResource(saveCardItem.getImage());
         profileimg.setImageResource(saveCardItem.getImageuser());
@@ -52,9 +52,9 @@ public class SaveCardViewHolder extends RecyclerView.ViewHolder {
                     }
                 }
 
+                int position = saveCardItems.indexOf(saveCardItem);
                 saveCardItems.remove(saveCardItem);
-                // notifyItemRemoved(getAdapterPosition()); // This line may need to be handled differently
-
+                adapter.notifyItemRemoved(position);
                 deleteButton.setAnimation(R.raw.defheart);
                 deleteButton.playAnimation();
             }

@@ -38,7 +38,7 @@ public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardViewHolder> {
 
     public void onBindViewHolder(@NonNull SaveCardViewHolder holder, int position) {
         SaveCardItem saveCardItem = saveCardItems.get(holder.getAdapterPosition());
-        holder.bind(saveCardItem, homeHomeCardItems, saveCardItems);
+        holder.bind(saveCardItem, homeHomeCardItems, saveCardItems, this);
 
     }
 

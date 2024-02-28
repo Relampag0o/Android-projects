@@ -56,7 +56,11 @@ public class CardViewHolder extends RecyclerView.ViewHolder {
         description.setText(homeCardItem.getDescription());
         date.setText(homeCardItem.getDate());
 
-        
+        // LIKE CONFIGURATION:
+
+        likeButton.setClickable(true);
+        likeButton.setFocusable(true);
+
         // Set initial Lottie animation
         if (homeCardItem.isLiked()) {
             likeButton.setAnimation(R.raw.defheart);
