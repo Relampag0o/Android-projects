@@ -17,13 +17,16 @@ import java.util.List;
 
 public class SaveCardViewHolder extends RecyclerView.ViewHolder {
 
+    // Variables to store the author, image and imageuser of the item
     TextView author;
     ImageView image;
     ImageView profileimg;
     LottieAnimationView deleteButton;
 
+    // Variable to store the context
      Context context;
 
+     // Constructor to initialize the views
     public SaveCardViewHolder(@NonNull View itemView, Context context) {
         super(itemView);
         author = itemView.findViewById(R.id.author);
@@ -35,11 +38,15 @@ public class SaveCardViewHolder extends RecyclerView.ViewHolder {
         this.context = context;
     }
 
+
+    // Method to bind the views with the data
     public void bind(SaveCardItem saveCardItem, List<HomeCardItem> homeHomeCardItems, List<SaveCardItem> saveCardItems,RecyclerView.Adapter adapter) {
         author.setText(saveCardItem.getAuthor());
         image.setImageResource(saveCardItem.getImage());
         profileimg.setImageResource(saveCardItem.getImageuser());
+        // Set the click listener for the delete button
         deleteButton.setOnClickListener(new View.OnClickListener() {
+            // When the delete button is clicked
             @Override
             public void onClick(View v) {
                 for (HomeCardItem homeCardItem : homeHomeCardItems) {
@@ -52,6 +59,7 @@ public class SaveCardViewHolder extends RecyclerView.ViewHolder {
                     }
                 }
 
+                // Remove the item from the list
                 int position = saveCardItems.indexOf(saveCardItem);
                 saveCardItems.remove(saveCardItem);
                 adapter.notifyItemRemoved(position);

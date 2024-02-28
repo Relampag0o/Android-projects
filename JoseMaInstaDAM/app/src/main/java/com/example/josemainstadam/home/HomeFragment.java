@@ -24,8 +24,11 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
+    // this is a list of the items that we are going to use in the card view.
+
     public static List<HomeCardItem> homeCardItems;
 
+    // this is the method that is going to be called when the fragment is created.
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         binding = FragmentHomeBinding.inflate(inflater, container, false);
@@ -39,6 +42,7 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
+    // this is the method that is going to be called when the fragment is destroyed.
     @Override
     public void onDestroyView() {
         super.onDestroyView();

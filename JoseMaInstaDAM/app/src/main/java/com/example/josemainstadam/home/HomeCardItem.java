@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import java.util.Random;
 
 public class HomeCardItem {
+
+    // Variables to store the data of the card item.
     private int id;
     private String username;
     private int userImageResource;

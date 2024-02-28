@@ -17,18 +17,25 @@ import com.example.josemainstadam.R;
 
 import java.util.List;
 
+// Adapter for the SaveCardItem
 public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardViewHolder> {
 
+    // Variables
+
     private List<SaveCardItem> saveCardItems;
+    // List of HomeCardItem
     private List<HomeCardItem> homeHomeCardItems;
+    // Context
     private Context context;
 
+    // Constructor
     public SaveCardAdapter(List<HomeCardItem> homeHomeCardItems, List<SaveCardItem> saveCardItems, Context context) {
         this.homeHomeCardItems = homeHomeCardItems;
         this.saveCardItems = saveCardItems;
         this.context = context;
     }
 
+    // Create the view holder
     @NonNull
     @Override
     public SaveCardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,6 +43,8 @@ public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardViewHolder> {
         return new SaveCardViewHolder(view, context);
     }
 
+
+    // Bind the view holder
     public void onBindViewHolder(@NonNull SaveCardViewHolder holder, int position) {
         SaveCardItem saveCardItem = saveCardItems.get(holder.getAdapterPosition());
         holder.bind(saveCardItem, homeHomeCardItems, saveCardItems, this);
@@ -43,6 +52,7 @@ public class SaveCardAdapter extends RecyclerView.Adapter<SaveCardViewHolder> {
     }
 
 
+    // Get the item count
     @Override
     public int getItemCount() {
         return saveCardItems.size();

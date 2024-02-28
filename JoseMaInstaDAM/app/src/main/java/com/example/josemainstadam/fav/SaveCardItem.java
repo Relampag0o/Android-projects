@@ -2,14 +2,19 @@ package com.example.josemainstadam.fav;
 
 public class SaveCardItem {
 
+    // Variable to store the id of the item
     private int id;
 
+
+    // Variables to store the author, image and imageuser of the item
     private String author;
     private int image;
     private int imageuser;
 
+    // Variable to check if the item is saved
     private boolean saved;
 
+    // Constructor to initialize the variables
     public SaveCardItem(int id, String author, int image, int imageuser) {
         this.id = id;
         this.author = author;

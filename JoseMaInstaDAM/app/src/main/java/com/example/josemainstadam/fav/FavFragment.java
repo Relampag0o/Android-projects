@@ -28,14 +28,16 @@ public class FavFragment extends Fragment {
 
     // lists to show cards.
     List<HomeCardItem> homeCardItems;
+    // list to show liked cards.
     List<SaveCardItem> favItems;
 
 
+    // constructor
     public FavFragment() {
         // Required empty public constructor
     }
 
-
+    // onCreateView method to inflate the layout for this fragment.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class FavFragment extends Fragment {
         }
     }
 
+    // onViewCreated method to configure the recyclerview.
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -60,6 +63,7 @@ public class FavFragment extends Fragment {
         favItems = new ArrayList<>();
         setFavItems();
 
+        // adapter to show the cards.
         SaveCardAdapter cardAdapter = new SaveCardAdapter(homeCardItems, favItems, requireContext());
         recyclerView.setAdapter(cardAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
@@ -75,8 +79,6 @@ public class FavFragment extends Fragment {
                 favItems.add(new SaveCardItem(c.getId(), c.getUsername(), c.getMainImageResource(), c.getUserImageResource()));
             }
         }
-
-
     }
 
 

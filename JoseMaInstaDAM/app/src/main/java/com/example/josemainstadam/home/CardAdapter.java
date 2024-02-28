@@ -17,15 +17,19 @@ import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
 
+    // List of HomeCardItem objects
     private List<HomeCardItem> homeCardItems;
 
+    // Context
     private Context context;
 
+    // Constructor
     public CardAdapter(List<HomeCardItem> homeCardItems, Context context) {
         this.homeCardItems = homeCardItems;
         this.context = context;
     }
 
+    // Create a new view holder
     @NonNull
     @Override
     public CardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,12 +37,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardViewHolder> {
         return new CardViewHolder(view, context);
     }
 
+    // Bind the view holder
     @Override
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
         HomeCardItem homeCardItem = homeCardItems.get(position);
         holder.bind(homeCardItem);
     }
 
+    // Return the size of the list
     @Override
     public int getItemCount() {
         return homeCardItems.size();
