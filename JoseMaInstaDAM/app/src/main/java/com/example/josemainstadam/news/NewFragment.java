@@ -47,10 +47,10 @@ public class NewFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        saveButton = view.findViewById(R.id.saveButton);
-        sp = view.findViewById(R.id.newsSpinner);
-        newItems = new ArrayList<>();
-        preferedItems = new ArrayList<>();
+        this.saveButton = view.findViewById(R.id.saveButton);
+        this.sp = view.findViewById(R.id.newsSpinner);
+        this.newItems = new ArrayList<>();
+        this.preferedItems = new ArrayList<>();
         addData();
         NewAdapter newAdapter = new NewAdapter(preferedItems, requireContext());
         recyclerView.setAdapter(newAdapter);
@@ -94,10 +94,6 @@ public class NewFragment extends Fragment {
         newItems.add(new NewItem(R.drawable.finance, "Understanding Taxes", "Demystify taxes with our comprehensive guides.", "Robert Green", Category.FINANCE,"https://trabian-canvas-prd-files.s3.amazonaws.com/lacapfcu-org/files/images/blog/blog_budget_1.jpg?VersionId=PQ5TqO4nMQLX.sC0HxEBhqoJ9ti1zojs"));
         newItems.add(new NewItem(R.drawable.atomic, "The World of Biology", "Dive into the world of biology and discover the secrets of life.", "Sophia Smith", Category.SCIENCE,"https://beyondexclamation.com/wp-content/uploads/2020/12/10-1.jpg"));
         newItems.add(new NewItem(R.drawable.sport, "The Olympics", "Catch up on the latest news from the Olympics.", "Tom Brown", Category.SPORTS,"https://www.timeshighereducation.com/student/sites/default/files/styles/default/public/different_sports.jpg?itok=CW5zK9vp"));
-
-
-
-
     }
 
     // code to show the selected preferences:
