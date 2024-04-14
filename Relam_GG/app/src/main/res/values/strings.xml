@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Relam_GG</string>
+    <string name="keep_me_signed_in" />
+    <string name="your_email" />
+    <string name="login" />
+    <string name="your_password" />
+    <string name="welcome_back" />
+    <string name="not_registered_yet" />
+    <string name="title_activity_login">LoginActivity</string>
 </resources>
